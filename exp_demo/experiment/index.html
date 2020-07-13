@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Experiment</title>
+
+  <!-- CSS: jspsych -->
+  <link href="jspsych-6-2/css/jspsych.css" rel="stylesheet" type="text/css">
+  <!-- CSS: Custom -->
+  <style>
+    body {
+      user-select: none;  /* none|auto|text|contain|all; 文本不可被选中（防止内容被复制） */
+      -ms-user-select: none;  /* Internet Explorer/Edge */
+      -moz-user-select: none;  /* Firefox */
+      -webkit-user-select: none;  /* Chrome/Safari/Opera */
+    }
+  </style>
+
+  <!-- JS: Basic -->
+  <script src="jspsych-6-2/jspsych.js"></script>
+  <script src="jspsych-6-2/plugins/jspsych-fullscreen.js"></script>
+  <script src="jspsych-6-2/plugins/jspsych-instructions.js"></script>
+  <script src="jspsych-6-2/plugins/jspsych-call-function.js"></script>
+  <!-- JS: Survey -->
+  <script src="jspsych-6-2/plugins/jspsych-survey-html-form.js"></script>
+  <script src="jspsych-6-2/plugins/jspsych-survey-likert.js"></script>
+  <script src="jspsych-6-2/plugins/jspsych-survey-multi-choice.js"></script>
+  <script src="jspsych-6-2/plugins/jspsych-survey-multi-select.js"></script>
+  <script src="jspsych-6-2/plugins/jspsych-survey-text.js"></script>
+  <!-- JS: Stimulus-Response -->
+  <script src="jspsych-6-2/plugins/jspsych-html-button-response.js"></script>
+  <script src="jspsych-6-2/plugins/jspsych-html-keyboard-response.js"></script>
+  <script src="jspsych-6-2/plugins/jspsych-html-slider-response.js"></script>
+  <script src="jspsych-6-2/plugins/jspsych-image-button-response.js"></script>
+  <script src="jspsych-6-2/plugins/jspsych-image-keyboard-response.js"></script>
+  <script src="jspsych-6-2/plugins/jspsych-image-slider-response.js"></script>
+  <script src="jspsych-6-2/plugins/jspsych-audio-button-response.js"></script>
+  <script src="jspsych-6-2/plugins/jspsych-audio-keyboard-response.js"></script>
+  <script src="jspsych-6-2/plugins/jspsych-audio-slider-response.js"></script>
+  <script src="jspsych-6-2/plugins/jspsych-video-button-response.js"></script>
+  <script src="jspsych-6-2/plugins/jspsych-video-keyboard-response.js"></script>
+  <script src="jspsych-6-2/plugins/jspsych-video-slider-response.js"></script>
+  <!-- JS: Categorization Task -->
+  <script src="jspsych-6-2/plugins/jspsych-categorize-animation.js"></script>
+  <script src="jspsych-6-2/plugins/jspsych-categorize-html.js"></script>
+  <script src="jspsych-6-2/plugins/jspsych-categorize-image.js"></script>
+  <script src="jspsych-6-2/plugins/jspsych-iat-html.js"></script>
+  <script src="jspsych-6-2/plugins/jspsych-iat-image.js"></script>
+  <!-- JS: Others -->
+  <script src="jspsych-6-2/plugins/jspsych-reconstruction.js"></script>
+</head>
+
+<body>
+  <!-- <body>内-禁止右键：oncontextmenu="return false" -->
+  <!-- <body>内-禁止选中：onselectstart="return false" -->
+  <script>
+    // 禁用鼠标右键
+    document.oncontextmenu = function() {
+      event.returnValue = false;
+    }
+    // 屏蔽键盘按键
+    document.onkeydown = function () {
+      // https://www.bejson.com/othertools/keycodes/
+      var disable_keys = {27: "Esc", 116: "F5", 123: "F12"};
+      if((event.keyCode in disable_keys) || (event.ctrlKey && event.keyCode==85)) {
+        event.keyCode = 0;
+        event.returnValue = false;
+        return false;
+      }
+    };
+  </script>
+
+  <!-- JavaScript Files of Your Experiment -->
+  <script src="functions.js"></script>
+  <script src="experiment.js"></script>
+</body>
+
+</html>

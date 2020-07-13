@@ -1,0 +1,12 @@
+.Rproj
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+*.xlsx
+*.csv
+lab_tasks
+library
+literature
+tutorial
+useless
