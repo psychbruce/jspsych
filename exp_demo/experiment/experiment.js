@@ -480,17 +480,23 @@ var Debrief = {
     type: "html-keyboard-response",
     stimulus: function() {
         var swls = jsPsych.data.get().filter({ scale: "SWLS" }).select("response").mean().toFixed(2);
-        var east_a = (jsPsych.data.get().filter({ formal: true, correct: true, stim_type: green, x: "a" }).select("rt").mean() - jsPsych.data.get().filter({ formal: true, correct: true, stim_type: blue, x: "a" }).select("rt").mean()).toFixed(2);
-        var east_b = (jsPsych.data.get().filter({ formal: true, correct: true, stim_type: green, x: "b" }).select("rt").mean() - jsPsych.data.get().filter({ formal: true, correct: true, stim_type: blue, x: "b" }).select("rt").mean()).toFixed(2);
-        var east_c = (jsPsych.data.get().filter({ formal: true, correct: true, stim_type: green, x: "c" }).select("rt").mean() - jsPsych.data.get().filter({ formal: true, correct: true, stim_type: blue, x: "c" }).select("rt").mean()).toFixed(2);
+        var east_a_grn = jsPsych.data.get().filter({ formal: true, correct: true, stim_type: green, x: "a" }).select("rt").mean();
+        var east_a_blue = jsPsych.data.get().filter({ formal: true, correct: true, stim_type: blue, x: "a" }).select("rt").mean();
+        var east_b_grn = jsPsych.data.get().filter({ formal: true, correct: true, stim_type: green, x: "b" }).select("rt").mean();
+        var east_b_blue = jsPsych.data.get().filter({ formal: true, correct: true, stim_type: blue, x: "b" }).select("rt").mean();
+        var east_c_grn = jsPsych.data.get().filter({ formal: true, correct: true, stim_type: green, x: "c" }).select("rt").mean();
+        var east_c_blue = jsPsych.data.get().filter({ formal: true, correct: true, stim_type: blue, x: "c" }).select("rt").mean();
+        var east_a = (east_a_grn - east_a_blue).toFixed(2);
+        var east_b = (east_b_grn - east_b_blue).toFixed(2);
+        var east_c = (east_c_grn - east_c_blue).toFixed(2);
         return "<p style='text-align: left; font-family: 华文中宋'>\
-    结果反馈：<br/><br/>\
-    你的幸福感得分：" + swls + "（取值范围1~7）<br/><br/>\
-    你对玫瑰、牡丹的内隐态度：" + east_a + "<br/>\
-    你对空气、土地的内隐态度：" + east_b + "<br/>\
-    你对蟑螂、蚊子的内隐态度：" + east_c + "<br/>\
-    （小于0 = 消极，0 = 中性，大于0 = 积极）<br/><br/>\
-    （按任意键继续）</p>";
+                结果反馈：<br/><br/>\
+                你的幸福感得分：" + swls + "（取值范围1~7）<br/><br/>\
+                你对玫瑰、牡丹的内隐态度：" + east_a + "<br/>\
+                你对空气、土地的内隐态度：" + east_b + "<br/>\
+                你对蟑螂、蚊子的内隐态度：" + east_c + "<br/>\
+                （小于0 = 消极，0 = 中性，大于0 = 积极）<br/><br/>\
+                （按任意键继续）</p>";
     }
 };
 

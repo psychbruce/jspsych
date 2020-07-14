@@ -2,6 +2,13 @@
 
 // 禁用鼠标右键
 document.oncontextmenu = function() {
+    // <body oncontextmenu="return false">
+    event.returnValue = false;
+};
+
+// 禁止选中文字
+document.onselectstart = function() {
+    // <body onselectstart="return false">
     event.returnValue = false;
 };
 
@@ -9,16 +16,17 @@ document.oncontextmenu = function() {
 document.onkeydown = function() {
     // https://www.bejson.com/othertools/keycodes/
     var disable_keys = { 27: "Esc", 116: "F5", 123: "F12" };
-    if ((event.keyCode in disable_keys) || (event.ctrlKey && event.keyCode == 85)) {
+    if ((event.keyCode in disable_keys) || (event.ctrlKey && event.keyCode == 85)) { // Ctrl + U
         event.keyCode = 0;
         event.returnValue = false;
         return false;
     }
 };
 
-/** Custom Functions **/
 
-// NOTE: when using functions in experiment.js, parameters should be defined in order !
+/** Custom JS Functions **/
+
+// NOTE: when using functions in experiment.js, parameters should be defined in order!
 
 function openfullscreen() {
     var element = document.documentElement;
