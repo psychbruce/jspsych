@@ -66,13 +66,16 @@ var set_html_style_EAST = {
   },
 };
 
-var btn_html = "<p><button class='jspsych-btn' style='font: normal 20px 等线'>%choice%</button></p>";
-var btn_timer_html = "<style onload='setInterval(timer, 1000)'></style><button class='jspsych-btn' style='font: normal 20px 等线' disabled=true>%choice%</button>";
+var btn_html = "<p><button class='jspsych-btn' style='font: normal 20px 等线'>\
+  %choice%</button></p>";
+var btn_timer_html = "<style onload='setInterval(timer, 1000)'></style>\
+  <button class='jspsych-btn' style='font: normal 20px 等线' disabled=true>\
+  %choice%</button>";
 
 var warmup = {
   type: "html-button-response",
   stimulus: "<p>请做好准备……</p>",
-  choices: ["<span id='timer'>5</span>秒后可继续"],
+  choices: ["<span id='timer'>5</span>秒后继续"],
   button_html: btn_timer_html
 };
 
