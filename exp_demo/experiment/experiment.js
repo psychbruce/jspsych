@@ -357,6 +357,7 @@ var EAST_prac1 = {
       correct_text: tag_LR1 + feedback_right,
       incorrect_text: tag_LR1 + feedback_wrong,
       feedback_duration: 500,
+      post_trial_gap: function() { return Math.random() * 500 + 200; },
       force_correct_button_press: true
     },
   ],
@@ -398,6 +399,7 @@ var EAST_prac2 = {
       correct_text: tag_LR2 + feedback_right,
       incorrect_text: tag_LR2 + feedback_wrong,
       feedback_duration: 500,
+      post_trial_gap: function() { return Math.random() * 500 + 200; },
       force_correct_button_press: true
     },
   ],
@@ -453,6 +455,7 @@ var EAST_test = {
       correct_text: tag_LR3,
       incorrect_text: tag_LR3,
       feedback_duration: 500,
+      post_trial_gap: function() { return Math.random() * 500 + 200; },
       force_correct_button_press: false,
       on_finish: function(data) { data.formal = true; }
     },
@@ -531,7 +534,6 @@ jsPsych.init({
   default_iti: 0,
   show_progress_bar: false,
   message_progress_bar: "",
-  exclusions: {},
   on_finish: function() {
     // jsPsych.data.displayData("csv");
     jsPsych.data.get().localSave("csv", "data_exp_demo.csv");  // download from browser

@@ -1,5 +1,24 @@
 
-/** Self-Defined Functions **/
+/** HTML DOM Settings **/
+
+// 禁用鼠标右键
+document.oncontextmenu = function() {
+ event.returnValue = false;
+};
+
+// 屏蔽键盘按键
+document.onkeydown = function () {
+  // https://www.bejson.com/othertools/keycodes/
+  var disable_keys = {27: "Esc", 116: "F5", 123: "F12"};
+  if((event.keyCode in disable_keys) || (event.ctrlKey && event.keyCode==85)) {
+    event.keyCode = 0;
+    event.returnValue = false;
+    return false;
+  }
+};
+
+
+/** Custom Functions **/
 
 // NOTE: when using functions in experiment.js, parameters should be defined in order !
 

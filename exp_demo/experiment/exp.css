@@ -1,0 +1,6 @@
+body {
+  user-select: none;  /* none|auto|text|contain|all; 禁止选中文本（防止复制） */
+  -ms-user-select: none;  /* Internet Explorer/Edge */
+  -moz-user-select: none;  /* Firefox */
+  -webkit-user-select: none;  /* Chrome/Safari/Opera */
+}

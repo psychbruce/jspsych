@@ -8,14 +8,7 @@
   <!-- CSS: jspsych -->
   <link href="jspsych-6-2/css/jspsych.css" rel="stylesheet" type="text/css">
   <!-- CSS: Custom -->
-  <style>
-    body {
-      user-select: none;  /* none|auto|text|contain|all; 文本不可被选中（防止内容被复制） */
-      -ms-user-select: none;  /* Internet Explorer/Edge */
-      -moz-user-select: none;  /* Firefox */
-      -webkit-user-select: none;  /* Chrome/Safari/Opera */
-    }
-  </style>
+  <link href="exp.css" rel="stylesheet" type="text/css">
 
   <!-- JS: Basic -->
   <script src="jspsych-6-2/jspsych.js"></script>
@@ -54,22 +47,6 @@
 <body>
   <!-- <body>内-禁止右键：oncontextmenu="return false" -->
   <!-- <body>内-禁止选中：onselectstart="return false" -->
-  <script>
-    // 禁用鼠标右键
-    document.oncontextmenu = function() {
-      event.returnValue = false;
-    }
-    // 屏蔽键盘按键
-    document.onkeydown = function () {
-      // https://www.bejson.com/othertools/keycodes/
-      var disable_keys = {27: "Esc", 116: "F5", 123: "F12"};
-      if((event.keyCode in disable_keys) || (event.ctrlKey && event.keyCode==85)) {
-        event.keyCode = 0;
-        event.returnValue = false;
-        return false;
-      }
-    };
-  </script>
 
   <!-- JavaScript Files of Your Experiment -->
   <script src="functions.js"></script>
