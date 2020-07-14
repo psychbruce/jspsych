@@ -262,18 +262,18 @@ var EAST_target_words = [
     { data: { stim_type: green, x: "c" }, s: c2 },
 ];
 
-var tag_LR1 = "<div style='position: absolute; top: 15%; left: 15%'; font-size: 30px>\
+var tag_LR1 = "<div style='position: absolute; top: 15%; left: 15%; font-size: 30px'>\
                按“F”键:<br/>积极词</div>\
-               <div style='position: absolute; top: 15%; right: 15%'; font-size: 30px>\
+               <div style='position: absolute; top: 15%; right: 15%; font-size: 30px'>\
                按“J”键:<br/>消极词</div>";
-var tag_LR2 = "<div style='position: absolute; top: 15%; left: 15%'; font-size: 30px>\
+var tag_LR2 = "<div style='position: absolute; top: 15%; left: 15%; font-size: 30px'>\
                按“F”键:<br/><span style='color: rgb(0, 125, 150)'>蓝色</span></div>\
-               <div style='position: absolute; top: 15%; right: 15%'; font-size: 30px>\
+               <div style='position: absolute; top: 15%; right: 15%; font-size: 30px'>\
                按“J”键:<br/><span style='color: rgb(0, 150, 125)'>绿色</span></div>";
-var tag_LR3 = "<div style='position: absolute; top: 10%; left: 10%'; font-size: 30px>\
+var tag_LR3 = "<div style='position: absolute; top: 10%; left: 10%; font-size: 30px'>\
                按“F”键:<br/>积极词<br/>或<br/>\
                <span style='color: rgb(0, 125, 150)'>蓝色</span></div>\
-               <div style='position: absolute; top: 10%; right: 10%'; font-size: 30px>\
+               <div style='position: absolute; top: 10%; right: 10%; font-size: 30px'>\
                按“J”键:<br/>消极词<br/>或<br/>\
                <span style='color: rgb(0, 150, 125)'>绿色</span></div>";
 var feedback_right = "<span style='position: absolute; top: 55%; left: 0; right: 0;\
@@ -462,7 +462,8 @@ var EAST_test = {
             prompt: tag_LR3,
             correct_text: tag_LR3,
             incorrect_text: tag_LR3,
-            feedback_duration: function() { return Math.random() * 600 + 300; }, // ITI: 300~900ms
+            feedback_duration: function() { return Math.random() * 1000 + 1000; }, // ITI: 1~2s
+            show_stim_with_feedback: false,
             force_correct_button_press: false,
             on_finish: function(data) { data.formal = true; }
         },
