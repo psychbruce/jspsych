@@ -1,6 +1,6 @@
 # jspsych
 
-💻 Psychological experiments developed by [Bruce Bao](https://psychbruce.github.io) with JavaScript and [jsPsych](https://www.jspsych.org/) API.
+💻 Psychological experiments developed with JavaScript and the [jsPsych](https://www.jspsych.org/) library by [Bruce Bao](https://psychbruce.github.io).
 
 ![](https://img.shields.io/badge/Language-JavaScript-success)
 ![](https://img.shields.io/github/license/psychbruce/jspsych?label=License&color=success)
@@ -14,11 +14,10 @@
 
 ## Contact
 
-Personal website: [包寒吴霜](https://psychbruce.github.io)
+E-mail: [baohws@foxmail.com](mailto:baohws@foxmail.com)
 
-E-mail: [baohws@psych.ac.cn](mailto:baohws@psych.ac.cn)
+Website: [psychbruce.github.io](https://psychbruce.github.io)
 
 [ResearchGate](https://www.researchgate.net/profile/Han_Wu_Shuang_Bao) |
 [GitHub](https://github.com/psychbruce) |
-[OSF](https://osf.io/gb5uv/) |
-[Zhihu](https://www.zhihu.com/people/psychbruce/)
+[知乎](https://www.zhihu.com/people/psychbruce/)
