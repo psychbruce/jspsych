@@ -1,6 +1,6 @@
-# jspsych
+# jsPsych Experiments
 
-💻 Psychological experiments developed with JavaScript and the [jsPsych](https://www.jspsych.org/) library by [Bruce Bao](https://psychbruce.github.io).
+💻 Psychological experiments developed with [jsPsych](https://www.jspsych.org/) (a JavaScript library for running behavioral experiments in a web browser).
 
 ![](https://img.shields.io/badge/Language-JavaScript-success)
 ![](https://img.shields.io/github/license/psychbruce/jspsych?label=License&color=success)
@@ -9,10 +9,12 @@
 
 ## Experiment List
 
-- Demo (in Chinese): [exp_demo](https://psychbruce.github.io/jspsych/exp_demo/experiment/)
+You can download source code from [here](https://github.com/psychbruce/jspsych/archive/master.zip). It is strongly recommended to use [VS Code](https://code.visualstudio.com/) as a code editor.
+
+- Experiment Demo (in Chinese): [exp_demo](https://psychbruce.github.io/jspsych/exp_demo/experiment/)
 
 
-## Contact
+## Author
 
 E-mail: [baohws@foxmail.com](mailto:baohws@foxmail.com)
 
