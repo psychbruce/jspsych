@@ -156,7 +156,7 @@ var Email = {
     type: "survey-html-form",
     data: { varname: "Email" },
     preamble: "你的邮箱",
-    html: "<p><input name='Q0' type='email' /></p>",
+    html: "<p><input name='Q0' type='email' placeholder='非必填' /></p>",
     button_label: "继续",
     on_finish: function(data) { addRespFromSurvey(data); }
 };
@@ -258,7 +258,7 @@ var OpenEnded = {
     type: "survey-text",
     data: { varname: "OpenEnded" },
     questions: [{
-        prompt: "问卷已全部完成，你可以分享在填写过程中的任何疑问或想法：",
+        prompt: "实验已全部完成，你可以分享任何疑问或想法：",
         placeholder: "非必答",
         rows: 5,
         columns: 50,
