@@ -45,10 +45,10 @@ function inputDialog(title, default_text) {
 function timer() {
     var second = document.getElementById("timer");
     var button = document.getElementsByClassName("jspsych-btn")[0];
-    if (second.innerText > 1) {
-        second.innerText = second.innerText - 1;
+    if (second.innerHTML > 1) {
+        second.innerHTML = second.innerHTML - 1;
     } else {
-        button.innerText = "继续";
+        button.innerHTML = "继续";
         button.disabled = false;
     }
 }
