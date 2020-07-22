@@ -1,4 +1,5 @@
-/** Author:
+/**
+ * Author:
  * Bao H.-W.-S. (https://psychbruce.github.io)
  */
 
@@ -8,24 +9,22 @@
 // 禁用鼠标右键
 document.oncontextmenu = function() {
     // <body oncontextmenu="return false">
-    event.returnValue = false;
+    return false;
 };
 
 // 禁止选中文字
 document.onselectstart = function() {
     // <body onselectstart="return false">
-    event.returnValue = false;
+    return false;
 };
 
 // 屏蔽键盘按键
 document.onkeydown = function() {
     // https://www.bejson.com/othertools/keycodes/
-    var disable_keys = { 27: "Esc", 116: "F5", 123: "F12" };
-    if ((event.keyCode in disable_keys) || (event.ctrlKey && event.keyCode == 85)) { // Ctrl + U
-        event.keyCode = 0;
-        event.returnValue = false;
-        return false;
-    }
+    var disabled_keys = { 27: "Esc", 116: "F5", 123: "F12" };
+    if ((event.keyCode in disabled_keys) ||
+        (event.ctrlKey && event.keyCode in { 85: "U" })
+    ) { return false; }
 };
 
 

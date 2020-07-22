@@ -1,20 +1,21 @@
-/** Author:
+/**
+ * Author:
  * Bao H.-W.-S. (https://psychbruce.github.io)
  */
 
 
-/* Define Global Variables */
+/* Global Variables */
 
-var btn_html = "<p><button class='jspsych-btn' style='font: normal 20px 等线'>%choice%</button></p>";
+const btn_html = "<p><button class='jspsych-btn' style='font: normal 20px 等线'>%choice%</button></p>";
 
-var btn_timer_html = "<style onload='setInterval(timer, 1000)'></style>\
-                     <button class='jspsych-btn' style='font: normal 20px 等线' disabled=true>%choice%</button>";
+const btn_timer_html = "<style onload='setInterval(timer, 1000)'></style>\
+                        <button class='jspsych-btn' style='font: normal 20px 等线' disabled=true>%choice%</button>";
 
-var feedback_right = "<span style='position: absolute; top: 55%; left: 0; right: 0;\
-                     color: green'>√</span>";
+const feedback_right = "<span style='position: absolute; top: 55%; left: 0; right: 0;\
+                        color: green'>√</span>";
 
-var feedback_wrong = "<span style='position: absolute; top: 55%; left: 0; right: 0;\
-                     color: red'>X</span>";
+const feedback_wrong = "<span style='position: absolute; top: 55%; left: 0; right: 0;\
+                        color: red'>X</span>";
 
 
 /* Blocks: HTML DOM Settings */

@@ -1,7 +1,3 @@
-/** Author:
- * Bao H.-W.-S. (https://psychbruce.github.io)
- */
-
 body {
     user-select: none;
     /* none|auto|text|contain|all; 禁止选中文本（防止复制） */
