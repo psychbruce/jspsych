@@ -1,3 +1,5 @@
+<base target="_blank">
+
 # jsPsych Experiment Demos
 
 💻 Psychological experiments developed with [jsPsych](https://www.jspsych.org/) (a JavaScript library for running online behavioral experiments).
@@ -17,7 +19,7 @@
 
 ## Author
 
-包寒吴霜 \| Bao H.-W.-S.
+[包寒吴霜 \| Bao H.-W.-S.](https://psychbruce.github.io)
 
 E-mail: [baohws@foxmail.com](mailto:baohws@foxmail.com)
 
