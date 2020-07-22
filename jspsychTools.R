@@ -18,14 +18,16 @@
 # (4) Automatically deal with possible duplication of data file
 # (5) Throw a warning if data file is not successfully saved
 
-run=function(path=".", export=".xlsx", repair_csv=TRUE, add_date=FALSE,
+run=function(path=".", exp_folder="experiment", data_folder="data",
+             export=".xlsx",
+             repair_csv=TRUE, add_date=FALSE,
              exclude_useless=FALSE,
              port=8000) {
   if(path==".") path=dirname(rstudioapi::getSourceEditorContext()$path)
   subID=rstudioapi::showPrompt("Participant ID", "ID", default="000")
 
-  exp_folder=file.path(path, "experiment")
-  data_folder=file.path(path, "data")
+  exp_folder=file.path(path, exp_folder)
+  data_folder=file.path(path, data_folder)
   if(!dir.exists(data_folder)) dir.create(data_folder)
   static_router=plumber::PlumberStatic$new(exp_folder)
 
@@ -71,57 +73,41 @@ run=function(path=".", export=".xlsx", repair_csv=TRUE, add_date=FALSE,
 }
 
 
-json2df=function(json_string, new_varname=NULL) {
-  df=json_string %>% jsonlite::fromJSON() %>% unlist() %>% t() %>% as.data.frame()
-  if(!is.null(new_varname)) names(df)=gsub("^Q", new_varname, names(df))
-  return(df)
-}
-
-
-init=function(path="experiment") {
-  if(dir.exists(path)) unlink(path, recursive=T)
-}
-
-
-replace_index_html=function(encoding="utf-8") {
-  stylesheets="jspsych.css"
-  scripts=rev(list.files("experiment/resource/script"))
-  html=c("<!DOCTYPE html>",
-         "  <html>",
-         "  <head>",
-         paste0("    <meta charset='", encoding, "' />"),
-         paste0("    <link rel=\"stylesheet\" href=\"resource/style/",
-                stylesheets, "\">"),
-         paste0("    <script src=\"resource/script/",
-                scripts, "\"></script>"),
-         "    <script src=\"experiment.js\"></script>")
-  html=c(html, "  </head>", "  <body>", "  </body>", "</html>")
-  writeLines(html, file.path("experiment/index.html"), useBytes=T)
-}
-
-
-replace_experiment_js=function() {
-  j=readLines("experiment/experiment.js", encoding="CP936")
-  f=file("experiment/experiment.js", "w", encoding="UTF-8")
-  cat(j, file=f, sep="\n")
-  close(f)
-}
-
-
-question_likert_items=function(items, labels=1:5, required=FALSE, name=NULL) {
-  if(length(items)==1) {
-    items=items %>% strsplit("\n") %>% unlist()
-    items=items[which(items!="")]
-  }
-  qs=list()
-  for(i in 1:length(items)) {
-    qs[[i]]=question_likert(prompt=items[i],
-                            labels=labels,
-                            required=required,
-                            name=paste0(name, i))
-  }
-  return(qs)
-}
+# json2df=function(json_string, new_varname=NULL) {
+#   df=json_string %>% jsonlite::fromJSON() %>% unlist() %>% t() %>% as.data.frame()
+#   if(!is.null(new_varname)) names(df)=gsub("^Q", new_varname, names(df))
+#   return(df)
+# }
+#
+#
+# init=function(path="experiment") {
+#   if(dir.exists(path)) unlink(path, recursive=T)
+# }
+#
+#
+# replace_index_html=function(encoding="utf-8") {
+#   stylesheets="jspsych.css"
+#   scripts=rev(list.files("experiment/resource/script"))
+#   html=c("<!DOCTYPE html>",
+#          "  <html>",
+#          "  <head>",
+#          paste0("    <meta charset='", encoding, "' />"),
+#          paste0("    <link rel=\"stylesheet\" href=\"resource/style/",
+#                 stylesheets, "\">"),
+#          paste0("    <script src=\"resource/script/",
+#                 scripts, "\"></script>"),
+#          "    <script src=\"experiment.js\"></script>")
+#   html=c(html, "  </head>", "  <body>", "  </body>", "</html>")
+#   writeLines(html, file.path("experiment/index.html"), useBytes=T)
+# }
+#
+#
+# replace_experiment_js=function() {
+#   j=readLines("experiment/experiment.js", encoding="CP936")
+#   f=file("experiment/experiment.js", "w", encoding="UTF-8")
+#   cat(j, file=f, sep="\n")
+#   close(f)
+# }
 
 
 #### Keyboard Lookup ####
