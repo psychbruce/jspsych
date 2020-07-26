@@ -6,16 +6,13 @@
 
 /* Global Variables */
 
-const btn_html = "<p><button class='jspsych-btn' style='font: normal 20px 等线'>%choice%</button></p>";
+const btn_html_timer =
+    `<style onload='tid=setInterval(timer, 1000)'></style>
+     <button onclick='clearInterval(tid)' class='jspsych-btn' disabled=true>%choice%</button>`
 
-const btn_timer_html = "<style onload='setInterval(timer, 1000)'></style>\
-                        <button class='jspsych-btn' style='font: normal 20px 等线' disabled=true>%choice%</button>";
+const feedback_right = `<span style='position: absolute; top: 55%; left: 0; right: 0; color: green'> √ </span>`
 
-const feedback_right = "<span style='position: absolute; top: 55%; left: 0; right: 0;\
-                        color: green'>√</span>";
-
-const feedback_wrong = "<span style='position: absolute; top: 55%; left: 0; right: 0;\
-                        color: red'>X</span>";
+const feedback_wrong = `<span style='position: absolute; top: 55%; left: 0; right: 0; color: red'> X </span>`
 
 
 /* Blocks: HTML DOM Settings */
@@ -23,26 +20,36 @@ const feedback_wrong = "<span style='position: absolute; top: 55%; left: 0; righ
 var set_html_style = {
     type: "call-function",
     func: function() {
-        document.body.style.backgroundColor = "rgb(245, 245, 245)"; // "#F0F0F0"
-        document.body.style.color = "black"; // font color
-        document.body.style.fontSize = "24px"; // 1px = 0.75pt; px = pt * DPI / 72
-        document.body.style.fontFamily = "等线";
-        document.body.style.fontWeight = "bold"; // or "normal"
-        document.body.style.cursor = "default";
+        document.body.style.backgroundColor = "rgb(250, 250, 250)" // background color
+        document.body.style.color = "black" // font color
+        document.body.style.fontSize = "20pt"
+        document.body.style.fontFamily = "微软雅黑"
+        document.body.style.fontWeight = "bold" // "normal", "bold"
+        document.body.style.lineHeight = "1.6em" // line space
+        document.body.style.cursor = "default" // "default", "none"
+        document.body.onselectstart = function() { return false } // 禁止选中文字 <body oncontextmenu="return false">
+        document.body.oncontextmenu = function() { return false } // 禁用鼠标右键 <body onselectstart="return false">
+        document.onkeydown = function() {
+            // 屏蔽键盘按键 (https://www.bejson.com/othertools/keycodes/)
+            if ((event.keyCode in { 27: "Esc", 116: "F5", 123: "F12" }) ||
+                (event.ctrlKey && event.keyCode in { 85: "U" })
+            ) { return false }
+        }
     },
-};
+}
 
 var set_html_style_EAST = {
     type: "call-function",
     func: function() {
-        document.body.style.backgroundColor = "black";
-        document.body.style.color = "white";
-        document.body.style.fontSize = "40px";
-        document.body.style.fontFamily = "微软雅黑";
-        document.body.style.fontWeight = "normal";
-        document.body.style.cursor = "none";
+        document.body.style.backgroundColor = "black"
+        document.body.style.color = "white"
+        document.body.style.fontSize = "32pt"
+        document.body.style.fontFamily = "微软雅黑"
+        document.body.style.fontWeight = "normal"
+        document.body.style.lineHeight = "1.2em"
+        document.body.style.cursor = "none"
     },
-};
+}
 
 
 /* Blocks: Basics */
@@ -50,76 +57,89 @@ var set_html_style_EAST = {
 var open_fullscreen = {
     type: "fullscreen",
     fullscreen_mode: true,
-    message: "<p style='font: 30px 微软雅黑'>请做好准备，实验即将开始……</p>",
-    button_label: "<p style='font: 30px 微软雅黑'>点此开始</p>",
+    message: `
+    <p style='font: 16pt 微软雅黑; text-align: left; line-height: 1.6em'>
+    <b>
+    测验将在一个「全屏页面」开始，为确保最佳效果，请你：<br/>
+    （1）在电脑上进行测验，并使用主流浏览器打开本网页<br/>
+    &emsp;&emsp;（Chrome、Edge、Firefox、Safari等，不要用IE）<br/>
+    （2）关掉电脑上其他正在运行的程序或将其最小化<br/>
+    （3）将手机调至静音，并尽可能减少环境噪音干扰<br/>
+    （4）在测验过程中不要退出全屏<br/>
+    （5）务必认真作答<br/><br/>
+    </b>
+    如果你同意参与，并且清楚理解了上述要求，请点击开始：
+    </p>`,
+    button_label: "点击这里全屏开始",
     delay_after: 100
-};
+}
 
 var welcome = {
     type: "html-keyboard-response",
-    stimulus: "<p style='font: bold 42px 微软雅黑; color: #B22222'>\
-              欢迎参与我们的实验</p>\
-              <p style='font: 30px 微软雅黑; color: black'><br/>\
-              <按空格键继续><br/>\
-              <b>实验过程中请勿退出全屏</b>\
-              <br/><br/></p>\
-              <p style='font: 24px 华文中宋; color: grey'>\
-              中国科学院心理研究所<br/>2020年</p>",
+    stimulus: `
+    <p style='font: bold 32pt 微软雅黑; color: #B22222'>
+    欢迎参与我们的实验</p>
+    <p style='font: 20pt 微软雅黑; color: black'><br/>
+    <按空格键继续><br/>
+    <b>实验过程中请勿退出全屏</b>
+    <br/><br/></p>
+    <p style='font: 20pt 华文中宋; color: grey'>
+    中国科学院心理研究所<br/>2020年</p>`,
     choices: [" "],
     post_trial_gap: 100
-};
+}
 
 var warmup = {
     type: "html-button-response",
     stimulus: "<p>请做好准备……</p>",
     choices: ["<span id='timer'>5</span>秒后继续"],
-    button_html: btn_timer_html
-};
+    button_html: btn_html_timer
+}
 
 var instr_4 = {
     type: "instructions",
     pages: [
-        "<p style='text-align: left'>\
-        指导语：<br/>\
-        下面有一系列陈述，<br/>\
-        请表明你对这些陈述的同意程度。<br/><br/>\
-        1 = 非常不同意<br/>\
-        2 = 不同意<br/>\
-        3 = 同意<br/>\
-        4 = 非常同意</p>",
+        `<p style='text-align: left'>
+        指导语：<br/>
+        下面有一系列陈述，<br/>
+        请表明你对这些陈述的同意程度。<br/><br/>
+        1 = 非常不同意<br/>
+        2 = 不同意<br/>
+        3 = 同意<br/>
+        4 = 非常同意</p>`,
     ],
     show_clickable_nav: true,
     allow_backward: false,
     button_label_previous: "返回",
     button_label_next: "继续"
-};
+}
 
 var instr_7 = {
     type: "instructions",
     pages: [
-        "<p style='text-align: left'>\
-        指导语：<br/>\
-        下面有一系列陈述，<br/>\
-        请表明你对这些陈述的同意程度。<br/><br/>\
-        1 = 非常不同意<br/>\
-        2 = 不同意<br/>\
-        3 = 比较不同意<br/>\
-        4 = 不确定<br/>\
-        5 = 比较同意<br/>\
-        6 = 同意<br/>\
-        7 = 非常同意</p>",
+        `<p style='text-align: left'>
+        指导语：<br/>
+        下面有一系列陈述，<br/>
+        请表明你对这些陈述的同意程度。<br/><br/>
+        1 = 非常不同意<br/>
+        2 = 不同意<br/>
+        3 = 比较不同意<br/>
+        4 = 不确定<br/>
+        5 = 比较同意<br/>
+        6 = 同意<br/>
+        7 = 非常同意</p>`,
     ],
     show_clickable_nav: true,
     allow_backward: false,
     button_label_previous: "返回",
     button_label_next: "继续"
-};
+}
 
 var close_fullscreen = {
     type: "fullscreen",
     fullscreen_mode: false,
     delay_after: 0
-};
+}
 
 
 /* Blocks: Surveys */
@@ -129,20 +149,19 @@ var Sex = {
     data: { varname: "Sex" },
     stimulus: "你的性别",
     choices: ["男", "女", "其他"],
-    button_html: btn_html,
-    on_finish: function(data) { addRespFromButton(data); }
-};
+    on_finish: function(data) { addRespFromButton(data) }
+}
 
 var Age = {
     type: "survey-html-form",
     data: { varname: "Age" },
     preamble: "你的年龄",
-    html: "<p><input name='Q0' type='number' placeholder='15~99'\
-          min=15 max=99 oninput='if(value.length>2) value=value.slice(0,2)'\
-          required /></p>",
+    html: `
+    <p><input name='Q0' type='number' placeholder='15~99' min=15 max=99
+    oninput='if(value.length>2) value=value.slice(0,2)' required /></p>`,
     button_label: "继续",
-    on_finish: function(data) { addRespFromSurvey(data); }
-};
+    on_finish: function(data) { addRespFromSurvey(data) }
+}
 
 var Birth = {
     type: "survey-html-form",
@@ -150,8 +169,8 @@ var Birth = {
     preamble: "你的生日",
     html: "<p><input name='Q0' type='date' value='2000-01-01' required /></p>",
     button_label: "继续",
-    on_finish: function(data) { addRespFromSurvey(data); }
-};
+    on_finish: function(data) { addRespFromSurvey(data) }
+}
 
 var Email = {
     type: "survey-html-form",
@@ -159,23 +178,24 @@ var Email = {
     preamble: "你的邮箱",
     html: "<p><input name='Q0' type='email' placeholder='非必填' /></p>",
     button_label: "继续",
-    on_finish: function(data) { addRespFromSurvey(data); }
-};
+    on_finish: function(data) { addRespFromSurvey(data) }
+}
 
 var School = {
     type: "survey-html-form",
     data: { varname: "School" },
     preamble: "你的学校",
-    html: "<p><select name='Q0' size=10>\
-          <option>北京大学</option>\
-          <option>清华大学</option>\
-          <option>中国人民大学</option>\
-          <option>北京师范大学</option>\
-          <option>其他</option>\
-          </select></p>",
+    html: `
+    <p><select name='Q0' size=10>
+    <option>北京大学</option>
+    <option>清华大学</option>
+    <option>中国人民大学</option>
+    <option>北京师范大学</option>
+    <option>其他</option>
+    </select></p>`,
     button_label: "继续",
-    on_finish: function(data) { addRespFromSurvey(data); }
-};
+    on_finish: function(data) { addRespFromSurvey(data) }
+}
 
 var Language = {
     type: "survey-multi-select",
@@ -187,13 +207,13 @@ var Language = {
         required: false
     }],
     button_label: "继续",
-    on_finish: function(data) { replaceComma(data); }
-};
+    on_finish: function(data) { replaceComma(data) }
+}
 
 var NameLiking = {
     type: "html-slider-response",
     data: { varname: "NameLiking" },
-    on_load: function() { setSliderAttr(); },
+    on_load: function() { setSliderAttr() },
     stimulus: "总体而言，你在多大程度上喜欢自己的名字？<br/>（1 = 非常不喜欢，9 = 非常喜欢）",
     labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
     min: 1,
@@ -202,19 +222,19 @@ var NameLiking = {
     prompt: "<b id='slider-value'>_</b><br/><br/>",
     button_label: "继续",
     require_movement: true
-};
+}
 
 var SWLS = {
     timeline: [{
         type: "html-button-response",
         data: jsPsych.timelineVariable("data"),
         stimulus: jsPsych.timelineVariable("s"),
-        prompt: "<p style='font: 20px 等线; font-weight: normal'>\
-                请表明你对该陈述的同意程度<br/>\
-                （1 = 非常不同意，7 = 非常同意）</p>",
+        prompt: `
+        <p style='font-size: 16pt; font-weight: normal'>
+        请表明你对该陈述的同意程度<br/>
+        （1 = 非常不同意，7 = 非常同意）</p>`,
         choices: ["1", "2", "3", "4", "5", "6", "7"],
-        button_html: btn_html,
-        on_finish: function(data) { addRespFromButtonScale(data, "SWLS"); },
+        on_finish: function(data) { addRespFromButtonScale(data, "SWLS") },
         post_trial_gap: 50
     }],
     timeline_variables: [
@@ -225,19 +245,19 @@ var SWLS = {
         { data: { i: 5 }, s: "如果生活可以重来，我还愿意过现在这样的生活" },
     ],
     randomize_order: false
-};
+}
 
 var RSES = {
     timeline: [{
         type: "html-button-response",
         data: jsPsych.timelineVariable("data"),
         stimulus: jsPsych.timelineVariable("s"),
-        prompt: "<p style='font: 20px 等线; font-weight: normal'>\
-                请表明你对该陈述的同意程度<br/>\
-                （1 = 非常不同意，4 = 非常同意）</p>",
+        prompt: `
+        <p style='font-size: 16pt; font-weight: normal'>
+        请表明你对该陈述的同意程度<br/>
+        （1 = 非常不同意，4 = 非常同意）</p>`,
         choices: ["1", "2", "3", "4"],
-        button_html: btn_html,
-        on_finish: function(data) { addRespFromButtonScale(data, "RSES"); },
+        on_finish: function(data) { addRespFromButtonScale(data, "RSES") },
         post_trial_gap: 50
     }],
     timeline_variables: [
@@ -253,7 +273,7 @@ var RSES = {
         { data: { i: 10 }, s: "有时我认为自己一无是处" },
     ],
     randomize_order: false
-};
+}
 
 var OpenEnded = {
     type: "survey-text",
@@ -266,8 +286,8 @@ var OpenEnded = {
         required: false
     }],
     button_label: "完成",
-    on_finish: function(data) { addRespFromSurvey(data); }
-};
+    on_finish: function(data) { addRespFromSurvey(data) }
+}
 
 
 /* Blocks: Experiments */
@@ -276,49 +296,52 @@ var OpenEnded = {
 
 var EAST_prac1_instr = {
     type: "html-keyboard-response",
-    stimulus: "<p style='text-align: left'>\
-    练习任务1：<br/><br/>\
-    下面是一个“形容词分类”任务。<br/>\
-    屏幕上将依次呈现一些形容词，它们分别具有<span style='color:#E11111'>积极</span>或<span style='color:#E11111'>消极</span>的含义。<br/>\
-    在每个形容词呈现之前，屏幕上会出现注视点“+”来提醒您注意。<br/>\
-    在每个形容词呈现之后，请<span style='color:#E11111'>尽量正确并且快速地</span>做出按键反应。<br/>\
-    - 如果出现<span style='color:#E11111'>积极</span>形容词，请按<span style='color:#E11111'>“F”键</span>。<br/>\
-    - 如果出现<span style='color:#E11111'>消极</span>形容词，请按<span style='color:#E11111'>“J”键</span>。<br/>\
-    每次判断均会有正确（“√”）或错误（“X”）的反馈。<br/><br/>\
-    现在，请您双手食指分别放在“F”键和“J”键上，并保证实验过程中双手不离开键盘。<br/>\
-    如果您已认真阅读并充分理解了上述要求，请按空格键开始。</p>",
+    stimulus: `
+    <p style='text-align: left; font-size: 20pt'>
+    练习任务1：<br/><br/>
+    下面是一个“形容词分类”任务。<br/>
+    屏幕上将依次呈现一些形容词，它们分别具有<span style='color:#FFD866'>积极</span>或<span style='color:#FFD866'>消极</span>的含义。<br/>
+    在每个形容词呈现之前，屏幕上会出现注视点“+”来提醒您注意。<br/>
+    在每个形容词呈现之后，请<span style='color:#FFD866'>尽量正确并且快速地</span>做出按键反应。<br/>
+    - 如果出现<span style='color:#FFD866'>积极</span>形容词，请按<span style='color:#FFD866'>“F”键</span>。<br/>
+    - 如果出现<span style='color:#FFD866'>消极</span>形容词，请按<span style='color:#FFD866'>“J”键</span>。<br/>
+    每次判断均会有正确（“√”）或错误（“X”）的反馈。<br/><br/>
+    现在，请您双手食指分别放在“F”键和“J”键上，并保证实验过程中双手不离开键盘。<br/>
+    如果您已认真阅读并充分理解了上述要求，请按空格键开始。</p>`,
     choices: [" "]
-};
+}
 
 var EAST_prac2_instr = {
     type: "html-keyboard-response",
-    stimulus: "<p style='text-align: left'>\
-    练习任务2：<br/><br/>\
-    下面是一个“名词分类”任务。<br/>\
-    屏幕上将依次呈现一些名词，它们分别具有<span style='color:rgb(0,125,150);background-color:black'>蓝色■</span>或<span style='color:rgb(0,150,125);background-color:black'>绿色■</span>的字体颜色。<br/>\
-    在每个名词呈现之前，屏幕上会出现注视点“+”来提醒您注意。<br/>\
-    在每个名词呈现之后，请<span style='color:#E11111'>尽量正确并且快速地</span>做出按键反应。<br/>\
-    - 如果出现<span style='color:rgb(0,125,150);background-color:black'>蓝色</span>名词，请按<span style='color:#E11111'>“F”键</span>。<br/>\
-    - 如果出现<span style='color:rgb(0,150,125);background-color:black'>绿色</span>名词，请按<span style='color:#E11111'>“J”键</span>。<br/>\
-    每次判断均会有正确(“√”)或错误(“X”)的反馈。<br/><br/>\
-    现在，请您双手食指分别放在“F”键和“J”键上，并保证实验过程中双手不离开键盘。<br/>\
-    如果您已认真阅读并充分理解了上述要求，请按空格键开始。</p>",
+    stimulus: `
+    <p style='text-align: left; font-size: 20pt'>
+    练习任务2：<br/><br/>
+    下面是一个“名词分类”任务。<br/>
+    屏幕上将依次呈现一些名词，它们分别具有<span style='color:rgb(0,125,150)'>蓝色■</span>或<span style='color:rgb(0,150,125)'>绿色■</span>的字体颜色。<br/>
+    在每个名词呈现之前，屏幕上会出现注视点“+”来提醒您注意。<br/>
+    在每个名词呈现之后，请<span style='color:#FFD866'>尽量正确并且快速地</span>做出按键反应。<br/>
+    - 如果出现<span style='color:rgb(0,125,150)'>蓝色</span>名词，请按<span style='color:#FFD866'>“F”键</span>。<br/>
+    - 如果出现<span style='color:rgb(0,150,125)'>绿色</span>名词，请按<span style='color:#FFD866'>“J”键</span>。<br/>
+    每次判断均会有正确(“√”)或错误(“X”)的反馈。<br/><br/>
+    现在，请您双手食指分别放在“F”键和“J”键上，并保证实验过程中双手不离开键盘。<br/>
+    如果您已认真阅读并充分理解了上述要求，请按空格键开始。</p>`,
     choices: [" "]
-};
+}
 
 var EAST_test_instr = {
     type: "html-keyboard-response",
-    stimulus: "<p style='text-align: left'>\
-    正式任务：<br/><br/>\
-    接下来是正式任务，先前两个练习任务中的白色形容词和彩色名词会随机交替出现。<br/>\
-    你仍然需要<span style='color:#E11111'>尽量正确并且快速地</span>对它们的属性做出判断：<br/>\
-    - 如果出现<span style='color:#E11111'>积极</span>形容词或<span style='color:rgb(0,125,150);background-color:black'>蓝色</span>名词，请按<span style='color:#E11111'>“F”键</span>。<br/>\
-    - 如果出现<span style='color:#E11111'>消极</span>形容词或<span style='color:rgb(0,150,125);background-color:black'>绿色</span>名词，请按<span style='color:#E11111'>“J”键</span>。<br/>\
-    这次将不再呈现关于正确或错误的反馈。<br/><br/>\
-    现在，请您双手食指分别放在“F”键和“J”键上，并保证实验过程中双手不离开键盘。<br/>\
-    如果您已认真阅读并充分理解了上述要求，请按空格键开始。</p>",
+    stimulus: `
+    <p style='text-align: left; font-size: 20pt'>
+    正式任务：<br/><br/>
+    接下来是正式任务，先前两个练习任务中的白色形容词和彩色名词会随机交替出现。<br/>
+    你仍然需要<span style='color:#FFD866'>尽量正确并且快速地</span>对它们的属性做出判断：<br/>
+    - 如果出现<span style='color:#FFD866'>积极</span>形容词或<span style='color:rgb(0,125,150)'>蓝色</span>名词，请按<span style='color:#FFD866'>“F”键</span>。<br/>
+    - 如果出现<span style='color:#FFD866'>消极</span>形容词或<span style='color:rgb(0,150,125)'>绿色</span>名词，请按<span style='color:#FFD866'>“J”键</span>。<br/>
+    这次将不再呈现关于正确或错误的反馈。<br/><br/>
+    现在，请您双手食指分别放在“F”键和“J”键上，并保证实验过程中双手不离开键盘。<br/>
+    如果您已认真阅读并充分理解了上述要求，请按空格键开始。</p>`,
     choices: [" "]
-};
+}
 
 // Stimuli
 
@@ -329,16 +352,16 @@ var EAST_attrib_words = [
     { data: { stim_type: "neg" }, s: "邪恶" },
     { data: { stim_type: "neg" }, s: "吝啬" },
     { data: { stim_type: "neg" }, s: "卑鄙" },
-];
+]
 
-var a1 = "玫瑰";
-var a2 = "牡丹";
-var b1 = "空气";
-var b2 = "土地";
-var c1 = "蟑螂";
-var c2 = "蚊子";
-var blue = "rgb(0, 125, 150)";
-var green = "rgb(0, 150, 125)";
+var a1 = "玫瑰"
+var a2 = "牡丹"
+var b1 = "空气"
+var b2 = "土地"
+var c1 = "蟑螂"
+var c2 = "蚊子"
+var blue = "rgb(0, 125, 150)"
+var green = "rgb(0, 150, 125)"
 var EAST_target_words = [
     { data: { stim_type: blue, x: "a" }, s: a1 },
     { data: { stim_type: blue, x: "a" }, s: a2 },
@@ -352,22 +375,16 @@ var EAST_target_words = [
     { data: { stim_type: green, x: "b" }, s: b2 },
     { data: { stim_type: green, x: "c" }, s: c1 },
     { data: { stim_type: green, x: "c" }, s: c2 },
-];
+]
 
-var tag_LR1 = "<div style='position: absolute; top: 15%; left: 15%; font-size: 30px'>\
-               按“F”键:<br/>积极词</div>\
-               <div style='position: absolute; top: 15%; right: 15%; font-size: 30px'>\
-               按“J”键:<br/>消极词</div>";
-var tag_LR2 = "<div style='position: absolute; top: 15%; left: 15%; font-size: 30px'>\
-               按“F”键:<br/><span style='color: rgb(0, 125, 150)'>蓝色</span></div>\
-               <div style='position: absolute; top: 15%; right: 15%; font-size: 30px'>\
-               按“J”键:<br/><span style='color: rgb(0, 150, 125)'>绿色</span></div>";
-var tag_LR3 = "<div style='position: absolute; top: 10%; left: 10%; font-size: 30px'>\
-               按“F”键:<br/>积极词<br/>或<br/>\
-               <span style='color: rgb(0, 125, 150)'>蓝色</span></div>\
-               <div style='position: absolute; top: 10%; right: 10%; font-size: 30px'>\
-               按“J”键:<br/>消极词<br/>或<br/>\
-               <span style='color: rgb(0, 150, 125)'>绿色</span></div>";
+var tag_LR1 = `<div class='tag-left'>按“F”键:<br/>积极词</div>
+               <div class='tag-right'>按“J”键:<br/>消极词</div>`
+
+var tag_LR2 = `<div class='tag-left'>按“F”键:<br/><span style='color:rgb(0, 125, 150)'>蓝色</span></div>
+               <div class='tag-right'>按“J”键:<br/><span style='color:rgb(0, 150, 125)'>绿色</span></div>`
+
+var tag_LR3 = `<div class='tag-left'>按“F”键:<br/>积极词<br/>或<br/><span style='color:rgb(0, 125, 150)'>蓝色</span></div>
+               <div class='tag-right'>按“J”键:<br/>消极词<br/>或<br/><span style='color:rgb(0, 150, 125)'>绿色</span></div>`
 
 // Exp. Blocks
 
@@ -394,9 +411,9 @@ var EAST_prac1 = {
             key_answer: function() {
                 switch (jsPsych.timelineVariable("data", true).stim_type) {
                     case "pos":
-                        return keyCode("f");
+                        return keyCode("f")
                     case "neg":
-                        return keyCode("j");
+                        return keyCode("j")
                 }
             },
             prompt: tag_LR1,
@@ -409,7 +426,7 @@ var EAST_prac1 = {
     // trial presentation
     repetitions: 2,
     randomize_order: true
-};
+}
 
 var EAST_prac2 = {
     // stimulus items
@@ -430,15 +447,15 @@ var EAST_prac2 = {
             type: "categorize-html",
             data: jsPsych.timelineVariable("data"),
             stimulus: function() {
-                return "<p style='color:" + jsPsych.timelineVariable("data", true).stim_type + "'>" + jsPsych.timelineVariable("s", true) + "</p>";
+                return "<p style='color:" + jsPsych.timelineVariable("data", true).stim_type + "'>" + jsPsych.timelineVariable("s", true) + "</p>"
             },
             choices: ["f", "j"],
             key_answer: function() {
                 switch (jsPsych.timelineVariable("data", true).stim_type) {
                     case blue:
-                        return keyCode("f");
+                        return keyCode("f")
                     case green:
-                        return keyCode("j");
+                        return keyCode("j")
                 }
             },
             prompt: tag_LR2,
@@ -451,7 +468,7 @@ var EAST_prac2 = {
     // trial presentation
     repetitions: 1,
     randomize_order: true
-};
+}
 
 var EAST_test_warmup = {
     type: "html-keyboard-response",
@@ -460,7 +477,7 @@ var EAST_test_warmup = {
     prompt: tag_LR3,
     trial_duration: 2000,
     response_ends_trial: false
-};
+}
 
 var EAST_test = {
     // stimulus items
@@ -481,15 +498,15 @@ var EAST_test = {
             type: "categorize-html",
             data: jsPsych.timelineVariable("data"),
             stimulus: function() {
-                var stim_type = jsPsych.timelineVariable("data", true).stim_type;
-                var stimulus = jsPsych.timelineVariable("s", true);
+                var stim_type = jsPsych.timelineVariable("data", true).stim_type
+                var stimulus = jsPsych.timelineVariable("s", true)
                 switch (stim_type) {
                     case "pos":
                     case "neg":
-                        return stimulus;
+                        return stimulus
                     case blue:
                     case green:
-                        return "<p style='color:" + stim_type + "'>" + stimulus + "</p>";
+                        return `<p style='color:${stim_type}'>${stimulus}</p>`
                 }
             },
             choices: ["f", "j"],
@@ -497,95 +514,105 @@ var EAST_test = {
                 switch (jsPsych.timelineVariable("data", true).stim_type) {
                     case "pos":
                     case blue:
-                        return keyCode("f");
+                        return keyCode("f")
                     case "neg":
                     case green:
-                        return keyCode("j");
+                        return keyCode("j")
                 }
             },
             prompt: tag_LR3,
             correct_text: tag_LR3,
             incorrect_text: tag_LR3,
-            feedback_duration: function() { return Math.random() * 1000 + 1000; }, // ITI: 1~2s
+            feedback_duration: function() { return Math.random() * 1000 + 1000 }, // ITI: 1~2s
             show_stim_with_feedback: false,
             force_correct_button_press: false,
-            on_finish: function(data) { data.formal = true; }
+            on_finish: function(data) { data.formal = true }
         },
     ],
     // trial presentation
     repetitions: 2,
     randomize_order: true
-};
+}
 
 
 /* Blocks: Feedbacks */
 
-var debrief = {
+var debrief1 = {
     type: "html-keyboard-response",
     stimulus: function() {
-        var east_a_grn = jsPsych.data.get().filter({ formal: true, correct: true, stim_type: green, x: "a" }).select("rt").mean();
-        var east_a_blue = jsPsych.data.get().filter({ formal: true, correct: true, stim_type: blue, x: "a" }).select("rt").mean();
-        var east_b_grn = jsPsych.data.get().filter({ formal: true, correct: true, stim_type: green, x: "b" }).select("rt").mean();
-        var east_b_blue = jsPsych.data.get().filter({ formal: true, correct: true, stim_type: blue, x: "b" }).select("rt").mean();
-        var east_c_grn = jsPsych.data.get().filter({ formal: true, correct: true, stim_type: green, x: "c" }).select("rt").mean();
-        var east_c_blue = jsPsych.data.get().filter({ formal: true, correct: true, stim_type: blue, x: "c" }).select("rt").mean();
-        var east_a = east_a_grn - east_a_blue;
-        var east_b = east_b_grn - east_b_blue;
-        var east_c = east_c_grn - east_c_blue;
-        return "<p style='text-align: left; font-family: 华文中宋'>\
-                结果反馈：<br/><br/>\
-                你的生活满意度：" + MEAN("SWLS") + "（取值范围1~7）<br/><br/>\
-                你的自尊水平：" + MEAN("RSES", rev = [3, 5, 8, 9, 10], likert = [1, 4]) + "（取值范围1~4）<br/><br/>\
-                你对玫瑰、牡丹的内隐态度：" + east_a.toFixed(2) + "<br/>\
-                你对空气、土地的内隐态度：" + east_b.toFixed(2) + "<br/>\
-                你对蟑螂、蚊子的内隐态度：" + east_c.toFixed(2) + "<br/>\
-                （小于0 = 消极，0 = 中性，大于0 = 积极）<br/><br/>\
-                （按任意键继续）</p>";
+        return `
+        <p style='text-align: left'>
+        结果反馈（问卷部分）：<br/><br/>
+        你的生活满意度：${MEAN("SWLS").toFixed(1)}（取值范围1~7）<br/>
+        你的自尊水平：${MEAN("RSES", rev = [3, 5, 8, 9, 10], likert = [1, 4]).toFixed(1)}（取值范围1~4）<br/><br/>
+        （按任意键继续）</p>`
     }
-};
+}
+
+var debrief2 = {
+    type: "html-keyboard-response",
+    stimulus: function() {
+        var data = jsPsych.data.get()
+        var east_a_grn = data.filter({ formal: true, correct: true, stim_type: green, x: "a" }).select("rt").mean()
+        var east_a_blue = data.filter({ formal: true, correct: true, stim_type: blue, x: "a" }).select("rt").mean()
+        var east_b_grn = data.filter({ formal: true, correct: true, stim_type: green, x: "b" }).select("rt").mean()
+        var east_b_blue = data.filter({ formal: true, correct: true, stim_type: blue, x: "b" }).select("rt").mean()
+        var east_c_grn = data.filter({ formal: true, correct: true, stim_type: green, x: "c" }).select("rt").mean()
+        var east_c_blue = data.filter({ formal: true, correct: true, stim_type: blue, x: "c" }).select("rt").mean()
+        var east_a = east_a_grn - east_a_blue
+        var east_b = east_b_grn - east_b_blue
+        var east_c = east_c_grn - east_c_blue
+        return `
+        <p style='text-align: left'>
+        结果反馈（实验部分）：<br/><br/>
+        你对玫瑰、牡丹的内隐态度：${east_a.toFixed(2)}<br/>
+        你对空气、土地的内隐态度：${east_b.toFixed(2)}<br/>
+        你对蟑螂、蚊子的内隐态度：${east_c.toFixed(2)}<br/>
+        （小于0 = 消极，0 = 中性，大于0 = 积极）<br/><br/>
+        （按任意键继续）</p>`
+    }
+}
 
 
 /* Combine Timelines */
-
-var begin = {
-    timeline: [
-        open_fullscreen, welcome, set_html_style, warmup,
-    ]
-};
 
 var demographics = {
     timeline: [
         Sex, Age, Birth, Language, School, Email,
     ]
-};
+}
 
 var surveys = {
     timeline: [
-        NameLiking, instr_4, RSES, instr_7, SWLS,
+        NameLiking,
+        instr_4, RSES,
+        instr_7, SWLS,
+        debrief1,
     ]
-};
+}
 
 var EAST = {
     timeline: [
-        EAST_prac1_instr, set_html_style_EAST, EAST_prac1, set_html_style,
-        EAST_prac2_instr, set_html_style_EAST, EAST_prac2, set_html_style,
-        EAST_test_instr, set_html_style_EAST, EAST_test_warmup, EAST_test, set_html_style,
+        set_html_style_EAST,
+        EAST_prac1_instr, EAST_prac1,
+        EAST_prac2_instr, EAST_prac2,
+        EAST_test_instr, EAST_test_warmup, EAST_test,
+        set_html_style,
+        debrief2,
     ]
-};
-
-var end = {
-    timeline: [
-        debrief, OpenEnded, close_fullscreen,
-    ]
-};
+}
 
 var main_timeline = [
-    begin,
+    set_html_style,
+    open_fullscreen,
+    welcome,
+    warmup,
     demographics,
     surveys,
     EAST,
-    end,
-];
+    OpenEnded,
+    close_fullscreen,
+]
 
 
 /* Launch jsPsych */
@@ -593,8 +620,8 @@ var main_timeline = [
 jsPsych.init({
     timeline: main_timeline,
     on_finish: function() {
-        jsPsych.data.get().localSave("csv", "data_exp_demo.csv"); // download from browser
-        // save_locally();  // get json from html
-        document.write("<h1 style='text-align:center; height:500pt; line-height:500pt'>实验结束，感谢您的参与！</h1>");
+        jsPsych.data.get().localSave("csv", "data_exp_demo.csv") // download from browser
+        document.body.innerHTML +=
+            "<h3 style='display: flex; flex-direction: column; align-items: center; flex: 1 1 100%'>实验结束，感谢您的参与！</h3>"
     }
-});
+})
