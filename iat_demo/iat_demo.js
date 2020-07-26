@@ -7,7 +7,7 @@
 /* Setting HTML Styles */
 
 // CSS styles (in HTML <style> tag)
-document.getElementsByTagName("head")[0].innerHTML +=
+document.head.innerHTML +=
     `<style>
     body { user-select: none; -ms-user-select: none; -moz-user-select: none; -webkit-user-select: none; }
     .jspsych-btn { font-size: 16pt; font-family: 微软雅黑; font-weight: normal; margin: 1em 0em; }
@@ -87,6 +87,7 @@ var open_fullscreen = {
         // must add this <script> in "index.html":
         //     <script src="https://pv.sohu.com/cityjson"></script>
         // which will return a json object "returnCitySN"
+        id: jsPsych.randomization.randomID(10),
         ip: returnCitySN["cip"],
         ip_city: returnCitySN["cname"],
         ip_city_id: returnCitySN["cid"],
@@ -520,12 +521,12 @@ function replaceWrongRT(df) {
     // Replace each wrong-trial RT with block mean + 600 ms (Greewald et al., 2003, JPSP)
     var rt_mean = df.filter({ correct: true }).select("rt").mean()
     var wrong = df.filter({ correct: false }).values() // raw data array (modifiable)
-    for (var i = 0; i < wrong.length; i++) {
+    for (var i in wrong) {
         wrong[i]["RT"] = rt_mean + 600
     }
 }
 
-var IAT_results = { IAT_D: 0, IAT_D_prac: 0, IAT_D_test: 0 }
+var IAT_results = { IAT_D: null, IAT_D_prac: null, IAT_D_test: null }
 
 var debrief_IAT = {
     type: "html-keyboard-response",
