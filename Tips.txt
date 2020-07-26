@@ -1,0 +1,23 @@
+JavaScript小贴士
+
+
+【关于句尾的分号】
+ 不需要写！
+（详见https://www.zhihu.com/question/20298345）
+
+
+【关于多行字符串】（均不是真正的换行，显示换行需要加HTML换行符<br/>）
+ 方法1：反斜杠(\)——续行符（较繁琐，不推荐使用）
+      "第1行\
+       第2行"
+ 方法2：反引号(``)——模版字符串（直接回车即可，推荐使用；但注意，不支持IE浏览器）
+      `第1行
+       第2行`
+ （详见https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/template_strings）
+ 
+
+【关于字符串与变量的拼接】
+ 方法1：
+      "My name is " + fullname + "."
+ 方法2：
+      `My name is ${fullname}.`
