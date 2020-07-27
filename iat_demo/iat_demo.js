@@ -84,9 +84,8 @@ var open_fullscreen = {
     fullscreen_mode: true,
     on_start: set_html_style,
     data: {
-        // must add this <script> in "index.html":
+        // must add this <script> in "index.html", which will return a JSON object "returnCitySN":
         //     <script src="https://pv.sohu.com/cityjson"></script>
-        // which will return a json object "returnCitySN"
         id: jsPsych.randomization.randomID(10),
         ip: returnCitySN["cip"],
         ip_city: returnCitySN["cname"],

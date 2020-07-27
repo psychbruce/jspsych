@@ -66,7 +66,7 @@ function addSliderValue(element_id = "slider-value") {
 function MEAN(scale_name, rev = [0], likert = [1, 7], var_i = "i", var_response = "response") {
     var df = jsPsych.data.get().filter({ scale: scale_name }).values() // raw data array (modifiable)
     var sum = 0
-    for (var i = 0; i < df.length; i++) {
+    for (var i in df) { // or: for (var i = 0; i < df.length; i++) {...}
         // df[i][j] or df[i]["varname"] or df[i].varname
         if (rev.indexOf(df[i][var_i]) == -1) {
             sum += df[i][var_response]
