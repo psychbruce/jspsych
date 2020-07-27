@@ -13,14 +13,14 @@
 
 > You should run the experiments in mainstream web browsers (e.g., *Chrome*, *Edge*, *Firefox*, *Opera*, *Safari*) **but not** *Internet Explorer* (IE)!
 
-- [**Experiment Demo**](https://psychbruce.github.io/jspsych/exp_demo/experiment)
+- [**Experiment Demo**](https://psychbruce.github.io/jspsych/exp_demo/experiment) (see [source code](https://github.com/psychbruce/jspsych/tree/master/exp_demo/experiment))
   + This demo contains an integrated example of **(1)** basic experiment settings (e.g., text font, background color), **(2)** demographic variables (e.g., age with a range restriction of 15~99), **(3)** surveys and Likert scales (e.g., the *Rosenberg Self-Esteem Scale*), **(4)** behavioral experiments (e.g., the *Extrinsic Affective Simon Task*), **(5)** feedbacks of results, and **(6)** some useful custom JS functions.
   + You could learn many **basic usages** of JavaScript (and the jsPsych plugins) from this demo!
-- [**IAT Demo**](https://psychbruce.github.io/jspsych/iat_demo)
+- [**IAT Demo**](https://psychbruce.github.io/jspsych/iat_demo) (see [source code](https://github.com/psychbruce/jspsych/tree/master/iat_demo))
   + This demo contains a well-designed template for the *Implicit Association Test* (IAT), which has been widely used to measure people's implicit attitudes. It also presents a feedback of the IAT *D* score (for details, see Greenwald, Nosek, & Banaji, 2003 *JPSP*).
   + You could learn many **advanced usages** of JavaScript from this demo!
 
-**Download all the source code [here](https://github.com/psychbruce/jspsych/archive/master.zip).**
+**Download all source code [here](https://github.com/psychbruce/jspsych/archive/master.zip).**
 <br/>
 **It is strongly recommended to use [VS Code](https://code.visualstudio.com) as a code editor.**
 
