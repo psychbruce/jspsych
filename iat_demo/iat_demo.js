@@ -24,7 +24,7 @@ function set_html_style() {
     document.body.style.fontFamily = "微软雅黑"
     document.body.style.fontWeight = "normal" // "normal", "bold"
     document.body.style.lineHeight = "1.6em" // line space
-    document.body.style.cursor = "default" // "default", "none"
+    document.body.style.cursor = "default" // "default", "none", "wait", ...
     document.body.onselectstart = function() { return false } // 禁止选中文字
     document.body.oncontextmenu = function() { return false } // 禁用鼠标右键
     document.onkeydown = function() {
@@ -76,6 +76,8 @@ const feedback_right = `<span style='position: absolute; top: 55%; left: 0; righ
 
 const feedback_wrong = `<span style='position: absolute; top: 55%; left: 0; right: 0; color: red'> X </span>`
 
+const subID = jsPsych.randomization.randomID(6)
+
 
 /* Blocks: Basics */
 
@@ -86,7 +88,7 @@ var open_fullscreen = {
     data: {
         // must add this <script> in "index.html", which will return a JSON object "returnCitySN":
         //     <script src="https://pv.sohu.com/cityjson"></script>
-        id: jsPsych.randomization.randomID(10),
+        id: subID,
         ip: returnCitySN["cip"],
         ip_city: returnCitySN["cname"],
         ip_city_id: returnCitySN["cid"],
@@ -123,7 +125,7 @@ var close_fullscreen = {
 var key_L = "f"
 var key_R = "j"
 var iat_temp = {
-    // Pairs A & Pairs B should be compatible (i.e., consistent with stereotypes)
+    // Pairs A & Pairs B should be compatible
     attribA: { label: "好", items: ["聪明", "成功", "高尚", "优秀", "幸福"] },
     attribB: { label: "坏", items: ["愚蠢", "失败", "卑鄙", "差劲", "悲惨"] },
     targetA: { label: "自我", items: ["我", "我的", "自己", "俺", "咱"] },
@@ -541,9 +543,8 @@ var debrief_IAT = {
 
         var n_trials_less_than_300ms = df.filterCustom(function(trial) { return trial.rt < 300 }).count()
         var p_too_fast = n_trials_less_than_300ms / df.count()
-        var validity = (p_too_fast > 0.1) ? `
-            <span style='color:red'>抱歉，由于你的随意按键反应过多（${(100 * p_too_fast).toFixed(1)}%），你的结果无效！</span><br/>` :
-            ""
+        var validity = (p_too_fast < 0.1) ? "" :
+            `<span style='color:red'>抱歉，由于你的随意按键反应过多（${(100 * p_too_fast).toFixed(1)}%），你的结果无效！</span><br/>`
 
         var iat_compat_prac = df.filter(block_ids.compat[0])
         var iat_compat_test = df.filter(block_ids.compat[1])
@@ -586,7 +587,7 @@ var debrief_IAT = {
         data.varname = "IAT_feedback"
         data.summary = JSON.stringify(IAT_results)
             // How to extract this in R:
-            // jsonlite::fromJSON(subset(data, varname=="IAT_feedback")$summary)$IAT_D
+            // jsonlite::fromJSON(subset(data, varname=="IAT_feedback")$summary)
     }
 }
 
@@ -619,7 +620,7 @@ var main_timeline = [
 jsPsych.init({
     timeline: main_timeline,
     on_finish: function() {
-        jsPsych.data.get().localSave("csv", "data_iat_demo.csv") // download from browser
+        jsPsych.data.get().localSave("csv", `data_iat_demo_${subID}.csv`) // download from browser
         document.body.innerHTML +=
             "<h3 style='display: flex; flex-direction: column; align-items: center; flex: 1 1 100%'>实验结束，感谢您的参与！</h3>"
         setTimeout(window.close, 10 * 1000) // not effective in Edge

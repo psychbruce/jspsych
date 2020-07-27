@@ -14,6 +14,8 @@ const feedback_right = `<span style='position: absolute; top: 55%; left: 0; righ
 
 const feedback_wrong = `<span style='position: absolute; top: 55%; left: 0; right: 0; color: red'> X </span>`
 
+const subID = jsPsych.randomization.randomID(6)
+
 
 /* Blocks: HTML DOM Settings */
 
@@ -26,7 +28,7 @@ var set_html_style = {
         document.body.style.fontFamily = "微软雅黑"
         document.body.style.fontWeight = "bold" // "normal", "bold"
         document.body.style.lineHeight = "1.6em" // line space
-        document.body.style.cursor = "default" // "default", "none"
+        document.body.style.cursor = "default" // "default", "none", "wait", ...
         document.body.onselectstart = function() { return false } // 禁止选中文字 <body oncontextmenu="return false">
         document.body.oncontextmenu = function() { return false } // 禁用鼠标右键 <body onselectstart="return false">
         document.onkeydown = function() {
@@ -81,8 +83,7 @@ var welcome = {
     欢迎参与我们的实验</p>
     <p style='font: 20pt 微软雅黑; color: black'><br/>
     <按空格键继续><br/>
-    <b>实验过程中请勿退出全屏</b>
-    <br/><br/></p>
+    <b>实验过程中请勿退出全屏</b><br/><br/></p>
     <p style='font: 20pt 华文中宋; color: grey'>
     中国科学院心理研究所<br/>2020年</p>`,
     choices: [" "],
@@ -620,7 +621,7 @@ var main_timeline = [
 jsPsych.init({
     timeline: main_timeline,
     on_finish: function() {
-        jsPsych.data.get().localSave("csv", "data_exp_demo.csv") // download from browser
+        jsPsych.data.get().localSave("csv", `data_exp_demo_${subID}.csv`) // download from browser
         document.body.innerHTML +=
             "<h3 style='display: flex; flex-direction: column; align-items: center; flex: 1 1 100%'>实验结束，感谢您的参与！</h3>"
     }
