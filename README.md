@@ -2,7 +2,7 @@
 
 # jsPsych Experiment Demos
 
-💻 Psychological experiments developed with [jsPsych](https://www.jspsych.org) (a JavaScript library for running online behavioral experiments; [de Leeuw, 2015](https://doi.org/10.3758/S13428-014-0458-Y)).
+💻 Psychological experiments (shown in Chinese) developed with [jsPsych](https://www.jspsych.org) (a JavaScript library for running online behavioral experiments; [de Leeuw, 2015](https://doi.org/10.3758/S13428-014-0458-Y)).
 
 ![](https://img.shields.io/badge/Language-JavaScript-success)
 ![](https://img.shields.io/github/license/psychbruce/jspsych?label=License&color=success)
@@ -31,9 +31,11 @@ Website: [psychbruce.github.io](https://psychbruce.github.io)
 [知乎](https://www.zhihu.com/people/psychbruce)
 
 
-## Experiment List (Stimuli Presented in Chinese)
+## Experiment List
 
-> To run the experiments, please use mainstream web browsers (e.g., *Chrome*, *Edge*, *Firefox*, *Opera*, *Safari*) **but not** *Internet Explorer* (IE)!
+To run the experiments, please use mainstream web browsers (e.g., *Chrome*, *Edge*, *Firefox*, *Opera*, *Safari*) **but not** *Internet Explorer* (IE)!
+<br/>
+请使用除IE浏览器外的主流浏览器（如Chrome、Edge等）运行下列实验程序！
 
 - [**Experiment Demo**](https://psychbruce.github.io/jspsych/exp_demo/experiment) (see [source code](https://github.com/psychbruce/jspsych/tree/master/exp_demo/experiment))
   + This demo contains an integrated example of **(1)** basic experiment settings (e.g., text font, background color), **(2)** demographic variables (e.g., age with a range restriction of 15~99), **(3)** surveys and Likert scales (e.g., the *Rosenberg Self-Esteem Scale*), **(4)** behavioral experiments (e.g., the *Extrinsic Affective Simon Task*), **(5)** feedbacks of results, and **(6)** some useful custom JS functions.
@@ -65,3 +67,14 @@ Website: [psychbruce.github.io](https://psychbruce.github.io)
   + `Excel Viewer`
   + `vscode-icons`
 - For other tips, see [this file](https://github.com/psychbruce/jspsych/blob/master/Tips.txt).
+
+
+## 中文教程
+
+[@包寒吴霜](https://www.zhihu.com/people/psychbruce)
+- [【合集】jsPsych教程收藏夹（持续更新）](https://zhuanlan.zhihu.com/p/158022294)
+- [jsPsych心理学实验与问卷编程指南（上篇）](https://zhuanlan.zhihu.com/p/150468198)
+- [jsPsych心理学实验与问卷编程指南（下篇）](https://zhuanlan.zhihu.com/p/154428604)
+- [利用「Cognition」免费平台轻松发布jsPsych在线实验！](https://zhuanlan.zhihu.com/p/159183585)
+
+**欢迎关注知乎专栏[「只求甚解」](https://zhuanlan.zhihu.com/inquisitive)！**
