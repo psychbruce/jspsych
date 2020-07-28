@@ -388,8 +388,8 @@ var IAT1 = blockTemplateIAT(
     },
     key_answer_func = function() {
         var stim = jsPsych.timelineVariable("s", true)
-        if (iat.attribA.items.indexOf(stim) >= 0) { return keyCode(key_L) }
-        if (iat.attribB.items.indexOf(stim) >= 0) { return keyCode(key_R) }
+        if (iat.attribA.items.includes(stim)) { return keyCode(key_L) }
+        if (iat.attribB.items.includes(stim)) { return keyCode(key_R) }
     }
 )
 
@@ -403,8 +403,8 @@ var IAT2 = blockTemplateIAT(
     },
     key_answer_func = function() {
         var stim = jsPsych.timelineVariable("s", true)
-        if (iat.targetA.items.indexOf(stim) >= 0) { return keyCode(key_L) }
-        if (iat.targetB.items.indexOf(stim) >= 0) { return keyCode(key_R) }
+        if (iat.targetA.items.includes(stim)) { return keyCode(key_L) }
+        if (iat.targetB.items.includes(stim)) { return keyCode(key_R) }
     }
 )
 
@@ -417,17 +417,17 @@ var IAT3 = blockTemplateIAT(
     ),
     stim_func = function() {
         var stim = jsPsych.timelineVariable("s", true)
-        if ([].concat(iat.attribA.items, iat.attribB.items).indexOf(stim) >= 0) {
+        if ([].concat(iat.attribA.items, iat.attribB.items).includes(stim)) {
             return `<p style='color:${attrib_color}'>${stim}</p>`
         }
-        if ([].concat(iat.targetA.items, iat.targetB.items).indexOf(stim) >= 0) {
+        if ([].concat(iat.targetA.items, iat.targetB.items).includes(stim)) {
             return `<p style='color:${target_color}'>${stim}</p>`
         }
     },
     key_answer_func = function() {
         var stim = jsPsych.timelineVariable("s", true)
-        if ([].concat(iat.attribA.items, iat.targetA.items).indexOf(stim) >= 0) { return keyCode(key_L) }
-        if ([].concat(iat.attribB.items, iat.targetB.items).indexOf(stim) >= 0) { return keyCode(key_R) }
+        if ([].concat(iat.attribA.items, iat.targetA.items).includes(stim)) { return keyCode(key_L) }
+        if ([].concat(iat.attribB.items, iat.targetB.items).includes(stim)) { return keyCode(key_R) }
     }
 )
 
@@ -440,17 +440,17 @@ var IAT4 = blockTemplateIAT(
     ),
     stim_func = function() {
         var stim = jsPsych.timelineVariable("s", true)
-        if ([].concat(iat.attribA.items, iat.attribB.items).indexOf(stim) >= 0) {
+        if ([].concat(iat.attribA.items, iat.attribB.items).includes(stim)) {
             return `<p style='color:${attrib_color}'>${stim}</p>`
         }
-        if ([].concat(iat.targetA.items, iat.targetB.items).indexOf(stim) >= 0) {
+        if ([].concat(iat.targetA.items, iat.targetB.items).includes(stim)) {
             return `<p style='color:${target_color}'>${stim}</p>`
         }
     },
     key_answer_func = function() {
         var stim = jsPsych.timelineVariable("s", true)
-        if ([].concat(iat.attribA.items, iat.targetA.items).indexOf(stim) >= 0) { return keyCode(key_L) }
-        if ([].concat(iat.attribB.items, iat.targetB.items).indexOf(stim) >= 0) { return keyCode(key_R) }
+        if ([].concat(iat.attribA.items, iat.targetA.items).includes(stim)) { return keyCode(key_L) }
+        if ([].concat(iat.attribB.items, iat.targetB.items).includes(stim)) { return keyCode(key_R) }
     }
 )
 
@@ -464,8 +464,8 @@ var IAT5 = blockTemplateIAT(
     },
     key_answer_func = function() {
         var stim = jsPsych.timelineVariable("s", true)
-        if (iat.targetB.items.indexOf(stim) >= 0) { return keyCode(key_L) }
-        if (iat.targetA.items.indexOf(stim) >= 0) { return keyCode(key_R) }
+        if (iat.targetB.items.includes(stim)) { return keyCode(key_L) }
+        if (iat.targetA.items.includes(stim)) { return keyCode(key_R) }
     }
 )
 
@@ -478,17 +478,17 @@ var IAT6 = blockTemplateIAT(
     ),
     stim_func = function() {
         var stim = jsPsych.timelineVariable("s", true)
-        if ([].concat(iat.attribA.items, iat.attribB.items).indexOf(stim) >= 0) {
+        if ([].concat(iat.attribA.items, iat.attribB.items).includes(stim)) {
             return `<p style='color:${attrib_color}'>${stim}</p>`
         }
-        if ([].concat(iat.targetB.items, iat.targetA.items).indexOf(stim) >= 0) {
+        if ([].concat(iat.targetB.items, iat.targetA.items).includes(stim)) {
             return `<p style='color:${target_color}'>${stim}</p>`
         }
     },
     key_answer_func = function() {
         var stim = jsPsych.timelineVariable("s", true)
-        if ([].concat(iat.attribA.items, iat.targetB.items).indexOf(stim) >= 0) { return keyCode(key_L) }
-        if ([].concat(iat.attribB.items, iat.targetA.items).indexOf(stim) >= 0) { return keyCode(key_R) }
+        if ([].concat(iat.attribA.items, iat.targetB.items).includes(stim)) { return keyCode(key_L) }
+        if ([].concat(iat.attribB.items, iat.targetA.items).includes(stim)) { return keyCode(key_R) }
     }
 )
 
@@ -501,17 +501,17 @@ var IAT7 = blockTemplateIAT(
     ),
     stim_func = function() {
         var stim = jsPsych.timelineVariable("s", true)
-        if ([].concat(iat.attribA.items, iat.attribB.items).indexOf(stim) >= 0) {
+        if ([].concat(iat.attribA.items, iat.attribB.items).includes(stim)) {
             return `<p style='color:${attrib_color}'>${stim}</p>`
         }
-        if ([].concat(iat.targetB.items, iat.targetA.items).indexOf(stim) >= 0) {
+        if ([].concat(iat.targetB.items, iat.targetA.items).includes(stim)) {
             return `<p style='color:${target_color}'>${stim}</p>`
         }
     },
     key_answer_func = function() {
         var stim = jsPsych.timelineVariable("s", true)
-        if ([].concat(iat.attribA.items, iat.targetB.items).indexOf(stim) >= 0) { return keyCode(key_L) }
-        if ([].concat(iat.attribB.items, iat.targetA.items).indexOf(stim) >= 0) { return keyCode(key_R) }
+        if ([].concat(iat.attribA.items, iat.targetB.items).includes(stim)) { return keyCode(key_L) }
+        if ([].concat(iat.attribB.items, iat.targetA.items).includes(stim)) { return keyCode(key_R) }
     }
 )
 

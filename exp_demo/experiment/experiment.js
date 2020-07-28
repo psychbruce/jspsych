@@ -293,6 +293,49 @@ var OpenEnded = {
 
 /* Blocks: Experiments */
 
+// Stimuli
+
+var EAST_attrib_words = [
+    { data: { stim_type: "pos" }, s: "健康" },
+    { data: { stim_type: "pos" }, s: "快乐" },
+    { data: { stim_type: "pos" }, s: "美好" },
+    { data: { stim_type: "neg" }, s: "邪恶" },
+    { data: { stim_type: "neg" }, s: "吝啬" },
+    { data: { stim_type: "neg" }, s: "卑鄙" },
+]
+
+var a1 = "玫瑰"
+var a2 = "牡丹"
+var b1 = "空气"
+var b2 = "土地"
+var c1 = "蟑螂"
+var c2 = "蚊子"
+var blu = "rgb(0, 125, 150)"
+var grn = "rgb(0, 150, 125)"
+var EAST_target_words = [
+    { data: { stim_type: blu, x: "a" }, s: a1 },
+    { data: { stim_type: blu, x: "a" }, s: a2 },
+    { data: { stim_type: blu, x: "b" }, s: b1 },
+    { data: { stim_type: blu, x: "b" }, s: b2 },
+    { data: { stim_type: blu, x: "c" }, s: c1 },
+    { data: { stim_type: blu, x: "c" }, s: c2 },
+    { data: { stim_type: grn, x: "a" }, s: a1 },
+    { data: { stim_type: grn, x: "a" }, s: a2 },
+    { data: { stim_type: grn, x: "b" }, s: b1 },
+    { data: { stim_type: grn, x: "b" }, s: b2 },
+    { data: { stim_type: grn, x: "c" }, s: c1 },
+    { data: { stim_type: grn, x: "c" }, s: c2 },
+]
+
+var tag_LR1 = `<div class='tag-left'>按“F”键:<br/>积极词</div>
+               <div class='tag-right'>按“J”键:<br/>消极词</div>`
+
+var tag_LR2 = `<div class='tag-left'>按“F”键:<br/><span style='color:${blu}'>蓝色</span></div>
+               <div class='tag-right'>按“J”键:<br/><span style='color:${grn}'>绿色</span></div>`
+
+var tag_LR3 = `<div class='tag-left'>按“F”键:<br/>积极词<br/>或<br/><span style='color:${blu}'>蓝色</span></div>
+               <div class='tag-right'>按“J”键:<br/>消极词<br/>或<br/><span style='color:${grn}'>绿色</span></div>`
+
 // Instructions
 
 var EAST_prac1_instr = {
@@ -318,11 +361,11 @@ var EAST_prac2_instr = {
     <p style='text-align: left; font-size: 20pt'>
     练习任务2：<br/><br/>
     下面是一个“名词分类”任务。<br/>
-    屏幕上将依次呈现一些名词，它们分别具有<span style='color:rgb(0,125,150)'>蓝色■</span>或<span style='color:rgb(0,150,125)'>绿色■</span>的字体颜色。<br/>
+    屏幕上将依次呈现一些名词，它们分别具有<span style='color:${blu}'>蓝色■</span>或<span style='color:${grn}'>绿色■</span>的字体颜色。<br/>
     在每个名词呈现之前，屏幕上会出现注视点“+”来提醒您注意。<br/>
     在每个名词呈现之后，请<span style='color:#FFD866'>尽量正确并且快速地</span>做出按键反应。<br/>
-    - 如果出现<span style='color:rgb(0,125,150)'>蓝色</span>名词，请按<span style='color:#FFD866'>“F”键</span>。<br/>
-    - 如果出现<span style='color:rgb(0,150,125)'>绿色</span>名词，请按<span style='color:#FFD866'>“J”键</span>。<br/>
+    - 如果出现<span style='color:${blu}'>蓝色</span>名词，请按<span style='color:#FFD866'>“F”键</span>。<br/>
+    - 如果出现<span style='color:${grn}'>绿色</span>名词，请按<span style='color:#FFD866'>“J”键</span>。<br/>
     每次判断均会有正确(“√”)或错误(“X”)的反馈。<br/><br/>
     现在，请您双手食指分别放在“F”键和“J”键上，并保证实验过程中双手不离开键盘。<br/>
     如果您已认真阅读并充分理解了上述要求，请按空格键开始。</p>`,
@@ -336,56 +379,13 @@ var EAST_test_instr = {
     正式任务：<br/><br/>
     接下来是正式任务，先前两个练习任务中的白色形容词和彩色名词会随机交替出现。<br/>
     你仍然需要<span style='color:#FFD866'>尽量正确并且快速地</span>对它们的属性做出判断：<br/>
-    - 如果出现<span style='color:#FFD866'>积极</span>形容词或<span style='color:rgb(0,125,150)'>蓝色</span>名词，请按<span style='color:#FFD866'>“F”键</span>。<br/>
-    - 如果出现<span style='color:#FFD866'>消极</span>形容词或<span style='color:rgb(0,150,125)'>绿色</span>名词，请按<span style='color:#FFD866'>“J”键</span>。<br/>
+    - 如果出现<span style='color:#FFD866'>积极</span>形容词或<span style='color:${blu}'>蓝色</span>名词，请按<span style='color:#FFD866'>“F”键</span>。<br/>
+    - 如果出现<span style='color:#FFD866'>消极</span>形容词或<span style='color:${grn}'>绿色</span>名词，请按<span style='color:#FFD866'>“J”键</span>。<br/>
     这次将不再呈现关于正确或错误的反馈。<br/><br/>
     现在，请您双手食指分别放在“F”键和“J”键上，并保证实验过程中双手不离开键盘。<br/>
     如果您已认真阅读并充分理解了上述要求，请按空格键开始。</p>`,
     choices: [" "]
 }
-
-// Stimuli
-
-var EAST_attrib_words = [
-    { data: { stim_type: "pos" }, s: "健康" },
-    { data: { stim_type: "pos" }, s: "快乐" },
-    { data: { stim_type: "pos" }, s: "美好" },
-    { data: { stim_type: "neg" }, s: "邪恶" },
-    { data: { stim_type: "neg" }, s: "吝啬" },
-    { data: { stim_type: "neg" }, s: "卑鄙" },
-]
-
-var a1 = "玫瑰"
-var a2 = "牡丹"
-var b1 = "空气"
-var b2 = "土地"
-var c1 = "蟑螂"
-var c2 = "蚊子"
-var blue = "rgb(0, 125, 150)"
-var green = "rgb(0, 150, 125)"
-var EAST_target_words = [
-    { data: { stim_type: blue, x: "a" }, s: a1 },
-    { data: { stim_type: blue, x: "a" }, s: a2 },
-    { data: { stim_type: blue, x: "b" }, s: b1 },
-    { data: { stim_type: blue, x: "b" }, s: b2 },
-    { data: { stim_type: blue, x: "c" }, s: c1 },
-    { data: { stim_type: blue, x: "c" }, s: c2 },
-    { data: { stim_type: green, x: "a" }, s: a1 },
-    { data: { stim_type: green, x: "a" }, s: a2 },
-    { data: { stim_type: green, x: "b" }, s: b1 },
-    { data: { stim_type: green, x: "b" }, s: b2 },
-    { data: { stim_type: green, x: "c" }, s: c1 },
-    { data: { stim_type: green, x: "c" }, s: c2 },
-]
-
-var tag_LR1 = `<div class='tag-left'>按“F”键:<br/>积极词</div>
-               <div class='tag-right'>按“J”键:<br/>消极词</div>`
-
-var tag_LR2 = `<div class='tag-left'>按“F”键:<br/><span style='color:rgb(0, 125, 150)'>蓝色</span></div>
-               <div class='tag-right'>按“J”键:<br/><span style='color:rgb(0, 150, 125)'>绿色</span></div>`
-
-var tag_LR3 = `<div class='tag-left'>按“F”键:<br/>积极词<br/>或<br/><span style='color:rgb(0, 125, 150)'>蓝色</span></div>
-               <div class='tag-right'>按“J”键:<br/>消极词<br/>或<br/><span style='color:rgb(0, 150, 125)'>绿色</span></div>`
 
 // Exp. Blocks
 
@@ -448,14 +448,14 @@ var EAST_prac2 = {
             type: "categorize-html",
             data: jsPsych.timelineVariable("data"),
             stimulus: function() {
-                return "<p style='color:" + jsPsych.timelineVariable("data", true).stim_type + "'>" + jsPsych.timelineVariable("s", true) + "</p>"
+                return `<p style='color:${jsPsych.timelineVariable("data", true).stim_type}'>${jsPsych.timelineVariable("s", true)}</p>`
             },
             choices: ["f", "j"],
             key_answer: function() {
                 switch (jsPsych.timelineVariable("data", true).stim_type) {
-                    case blue:
+                    case blu:
                         return keyCode("f")
-                    case green:
+                    case grn:
                         return keyCode("j")
                 }
             },
@@ -505,8 +505,8 @@ var EAST_test = {
                     case "pos":
                     case "neg":
                         return stimulus
-                    case blue:
-                    case green:
+                    case blu:
+                    case grn:
                         return `<p style='color:${stim_type}'>${stimulus}</p>`
                 }
             },
@@ -514,10 +514,10 @@ var EAST_test = {
             key_answer: function() {
                 switch (jsPsych.timelineVariable("data", true).stim_type) {
                     case "pos":
-                    case blue:
+                    case blu:
                         return keyCode("f")
                     case "neg":
-                    case green:
+                    case grn:
                         return keyCode("j")
                 }
             },
@@ -554,15 +554,15 @@ var debrief2 = {
     type: "html-keyboard-response",
     stimulus: function() {
         var data = jsPsych.data.get()
-        var east_a_grn = data.filter({ formal: true, correct: true, stim_type: green, x: "a" }).select("rt").mean()
-        var east_a_blue = data.filter({ formal: true, correct: true, stim_type: blue, x: "a" }).select("rt").mean()
-        var east_b_grn = data.filter({ formal: true, correct: true, stim_type: green, x: "b" }).select("rt").mean()
-        var east_b_blue = data.filter({ formal: true, correct: true, stim_type: blue, x: "b" }).select("rt").mean()
-        var east_c_grn = data.filter({ formal: true, correct: true, stim_type: green, x: "c" }).select("rt").mean()
-        var east_c_blue = data.filter({ formal: true, correct: true, stim_type: blue, x: "c" }).select("rt").mean()
-        var east_a = east_a_grn - east_a_blue
-        var east_b = east_b_grn - east_b_blue
-        var east_c = east_c_grn - east_c_blue
+        var east_a_grn = data.filter({ formal: true, correct: true, stim_type: grn, x: "a" }).select("rt").mean()
+        var east_a_blu = data.filter({ formal: true, correct: true, stim_type: blu, x: "a" }).select("rt").mean()
+        var east_b_grn = data.filter({ formal: true, correct: true, stim_type: grn, x: "b" }).select("rt").mean()
+        var east_b_blu = data.filter({ formal: true, correct: true, stim_type: blu, x: "b" }).select("rt").mean()
+        var east_c_grn = data.filter({ formal: true, correct: true, stim_type: grn, x: "c" }).select("rt").mean()
+        var east_c_blu = data.filter({ formal: true, correct: true, stim_type: blu, x: "c" }).select("rt").mean()
+        var east_a = east_a_grn - east_a_blu
+        var east_b = east_b_grn - east_b_blu
+        var east_c = east_c_grn - east_c_blu
         return `
         <p style='text-align: left'>
         结果反馈（实验部分）：<br/><br/>

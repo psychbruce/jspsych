@@ -68,7 +68,7 @@ function MEAN(scale_name, rev = [0], likert = [1, 7], var_i = "i", var_response 
     var sum = 0
     for (var i in df) { // or: for (var i = 0; i < df.length; i++) {...}
         // df[i][j] or df[i]["varname"] or df[i].varname
-        if (rev.indexOf(df[i][var_i]) == -1) {
+        if (rev.includes(df[i][var_i]) == false) {
             sum += df[i][var_response]
         } else {
             sum += likert[0] + likert[1] - df[i][var_response]
