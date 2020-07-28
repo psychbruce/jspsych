@@ -2,7 +2,7 @@
 
 # jsPsych Experiment Demos
 
-💻 Psychological experiments developed with [jsPsych](https://www.jspsych.org) ([de Leeuw, 2015](https://doi.org/10.3758/S13428-014-0458-Y); a JavaScript library for running online behavioral experiments).
+💻 Psychological experiments developed with [jsPsych](https://www.jspsych.org) (a JavaScript library for running online behavioral experiments; [de Leeuw, 2015](https://doi.org/10.3758/S13428-014-0458-Y)).
 
 ![](https://img.shields.io/badge/Language-JavaScript-success)
 ![](https://img.shields.io/github/license/psychbruce/jspsych?label=License&color=success)
@@ -14,7 +14,7 @@
 </p>
 
 > 例如：<br/>
-> 某某某的程序参考了GitHub代码库 [https://github.com/psychbruce/jspsych](https://github.com/psychbruce/jspsych)（包寒吴霜, 2020）。<br/>
+> 某某某的程序参考了GitHub代码库 [https://github.com/psychbruce/jspsych](https://github.com/psychbruce/jspsych)（包寒吴霜，2020）。<br/>
 > Example:<br/>
 > XXX's program is adapted from the GitHub repository [https://github.com/psychbruce/jspsych](https://github.com/psychbruce/jspsych) (Bao, 2020).
 
