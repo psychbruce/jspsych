@@ -50,9 +50,10 @@ Website: [psychbruce.github.io](https://psychbruce.github.io)
 
 **⚠ 注意：复制、修改、使用、分享本代码库，请务必规范引用！**
 
-> Bao, H.-W.-S. (2020). jsPsych experiment demos. [https://github.com/psychbruce/jspsych](https://github.com/psychbruce/jspsych)
+1. Bao, H.-W.-S. (2020). jsPsych experiment demos. [https://github.com/psychbruce/jspsych](https://github.com/psychbruce/jspsych)
+2. de Leeuw, J. R. (2015). jsPsych: A JavaScript library for creating behavioral experiments in a web browser. *Behavior Research Methods, 47*(1), 1–12. [https:/doi.org/10.3758/s13428-014-0458-y](https:/doi.org/10.3758/s13428-014-0458-y)
 
-- 为了更高的编程效率，强烈建议使用「[**VS Code**](https://code.visualstudio.com)」作为代码编辑器，并安装以下插件（从VS Code中的“Extensions”安装）：
+\* 为了更高的编程效率和更好的编程体验，强烈建议使用「[**VS Code**](https://code.visualstudio.com)」作为代码编辑器，并安装以下插件（从VS Code中的“Extensions”安装）：
   + `JS-CSS-HTML Formatter`
   + `HTML CSS Support`
   + `JavaScript (ES6) code snippets`
