@@ -8,6 +8,11 @@
 ![](https://img.shields.io/github/license/psychbruce/jspsych?label=License&color=success)
 [![](https://img.shields.io/github/stars/psychbruce/jspsych?style=social)](https://github.com/psychbruce/jspsych/stargazers)
 
+<a href="https://en.wikipedia.org/wiki/Creative_Commons_license"><img src="CC_BY-NC-SA.png" width="120px" height="42px"></a>
+<p style="color:#E11111">
+* 复制、修改、发布、展示本代码库，请务必遵守「创作共用许可协议」“BY-NC-SA”（“原作者署名-非商业用途使用-相同方式共享”）
+</p>
+
 
 ## Experiment List (in Chinese)
 
