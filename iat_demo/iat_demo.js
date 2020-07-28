@@ -199,7 +199,7 @@ var IAT_instr0 = {
     <tr> <td>&emsp;${iat_temp.attribB.label}&emsp;</td> <td>&emsp;${iat_temp.attribB.items.join("、")}&emsp;</td> </tr>
     <tr> <td>&emsp;${iat_temp.targetA.label}&emsp;</td> <td>&emsp;${iat_temp.targetA.items.join("、")}&emsp;</td> </tr>
     <tr> <td>&emsp;${iat_temp.targetB.label}&emsp;</td> <td>&emsp;${iat_temp.targetB.items.join("、")}&emsp;</td> </tr>
-    </table>`,
+    </table><br/>`,
     choices: ["<span id='timer'>10</span>秒后继续"],
     button_html: btn_html_timer,
     on_finish: set_html_style_iat
@@ -538,7 +538,7 @@ var debrief_IAT = {
         } else {
             var block_ids = { compat: [{ IAT: 6 }, { IAT: 7 }], incomp: [{ IAT: 3 }, { IAT: 4 }] }
         }
-        var df_iat_raw = jsPsych.data.get().filter([{ IAT: 3 }, { IAT: 4 }, { IAT: 6 }, { IAT: 7 }]) // data frame
+        var df_iat_raw = jsPsych.data.get().filter([{ IAT: 3 }, { IAT: 4 }, { IAT: 6 }, { IAT: 7 }]) // data frame (jsPsych "Data Collection" class)
         var df = df_iat_raw.filterCustom(function(trial) { return trial.rt < 10000 })
 
         var n_trials_less_than_300ms = df.filterCustom(function(trial) { return trial.rt < 300 }).count()
