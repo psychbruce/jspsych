@@ -2,7 +2,7 @@
 
 # jsPsych Experiment Demos
 
-💻 Psychological experiments developed with [jsPsych](https://www.jspsych.org) (a JavaScript library for running online behavioral experiments; de Leeuw, 2015).
+💻 Psychological experiments developed with [jsPsych](https://www.jspsych.org) ([de Leeuw, 2015](https://doi.org/10.3758/S13428-014-0458-Y); a JavaScript library for running online behavioral experiments).
 
 ![](https://img.shields.io/badge/Language-JavaScript-success)
 ![](https://img.shields.io/github/license/psychbruce/jspsych?label=License&color=success)
@@ -12,6 +12,11 @@
 <p style="color:#E11111">
 * 复制、修改、发布、展示本代码库，请务必遵守<b>「创作共用许可协议 CC BY-NC-SA」（原作者署名-非商业用途使用-相同方式共享）</b>！
 </p>
+
+> 例如：<br/>
+> 某某某的程序参考了GitHub代码库 [https://github.com/psychbruce/jspsych](https://github.com/psychbruce/jspsych)（包寒吴霜, 2020）。<br/>
+> Example:<br/>
+> XXX's program is adapted from the GitHub repository [https://github.com/psychbruce/jspsych](https://github.com/psychbruce/jspsych) (Bao, 2020).
 
 
 ## Experiment List (in Chinese)
