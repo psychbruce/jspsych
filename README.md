@@ -45,9 +45,9 @@ Website: [psychbruce.github.io](https://psychbruce.github.io)
 
 ## Download
 
-**Download all source code [here](https://github.com/psychbruce/jspsych/archive/master.zip).**
+**✔ Download all source code [here](https://github.com/psychbruce/jspsych/archive/master.zip).**
 
-**⚠ CAUTION: You MUST cite this webpage ([https://github.com/psychbruce/jspsych](https://github.com/psychbruce/jspsych) or [https://psychbruce.github.io/jspsych](https://psychbruce.github.io/jspsych)) and the author (包寒吴霜 or Bao H.-W.-S.) if you copy, share, re-use, or re-distribute the code in this GitHub repository!**
+**⚠ CAUTION: You MUST cite the webpage ([https://github.com/psychbruce/jspsych](https://github.com/psychbruce/jspsych)) AND the author (包寒吴霜 or Bao H.-W.-S.) if you copy, share, re-use, or re-distribute the code in this GitHub repository!**
 
 
 ## Tips
