@@ -2,7 +2,7 @@
 
 # jsPsych Experiment Demos
 
-💻 Psychological experiments (shown in Chinese) developed with [jsPsych](https://www.jspsych.org) (a JavaScript library for running online behavioral experiments; [de Leeuw, 2015](https://doi.org/10.3758/S13428-014-0458-Y)).
+💻 Psychological experiments developed with [jsPsych](https://www.jspsych.org) (a JavaScript library for running online behavioral experiments; [de Leeuw, 2015](https://doi.org/10.3758/S13428-014-0458-Y)). All experiments are shown in Chinese.
 
 ![](https://img.shields.io/badge/Language-JavaScript-success)
 ![](https://img.shields.io/github/license/psychbruce/jspsych?label=License&color=success)
@@ -71,10 +71,9 @@ To run the experiments, please use mainstream web browsers (e.g., *Chrome*, *Edg
 
 ## 中文教程
 
-[@包寒吴霜](https://www.zhihu.com/people/psychbruce)
 - [【合集】jsPsych教程收藏夹（持续更新）](https://zhuanlan.zhihu.com/p/158022294)
 - [jsPsych心理学实验与问卷编程指南（上篇）](https://zhuanlan.zhihu.com/p/150468198)
 - [jsPsych心理学实验与问卷编程指南（下篇）](https://zhuanlan.zhihu.com/p/154428604)
 - [利用「Cognition」免费平台轻松发布jsPsych在线实验！](https://zhuanlan.zhihu.com/p/159183585)
 
-**欢迎关注知乎专栏[「只求甚解」](https://zhuanlan.zhihu.com/inquisitive)！**
+**欢迎关注知乎专栏「[只求甚解](https://zhuanlan.zhihu.com/inquisitive)」！**
