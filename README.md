@@ -1,6 +1,6 @@
 <base target="_blank">
 
-# jsPsych Experiment Demos
+# jsPsych Experiment Demos（中文示例程序）
 
 💻 Psychological experiments developed with [jsPsych](https://www.jspsych.org) (a JavaScript library for running online behavioral experiments; [de Leeuw, 2015](https://doi.org/10.3758/S13428-014-0458-Y)). All experiments are shown in Chinese.
 
@@ -10,15 +10,15 @@
 
 <a href="https://en.wikipedia.org/wiki/Creative_Commons_license"><img src="https://s1.ax1x.com/2020/07/28/aAjUJg.jpg" width="120px" height="42px"></a>
 
-- 复制、修改、发布、展示本代码库，请务必遵守<b>「创作共用许可协议 CC BY-NC-SA」（原作者署名-非商业用途使用-相同方式共享）</b>
+- 复制、修改、使用、分享本代码库，必须遵守<b>「创作共用许可协议 CC BY-NC-SA」（原作者署名-非商业用途使用-相同方式共享）</b>
 
 > 例如：<br/>
-> 某某某的程序参考了GitHub代码库 [https://github.com/psychbruce/jspsych](https://github.com/psychbruce/jspsych)（包寒吴霜，2020）。<br/><br/>
+> 某某某的程序参考/借鉴了GitHub代码库 [https://github.com/psychbruce/jspsych](https://github.com/psychbruce/jspsych)（包寒吴霜，2020）。<br/>
 > Example:<br/>
-> XXX's program is adapted from the GitHub repository [https://github.com/psychbruce/jspsych](https://github.com/psychbruce/jspsych) (Bao, 2020).
+> XXX's program is partly adapted from the GitHub repository [https://github.com/psychbruce/jspsych](https://github.com/psychbruce/jspsych) (Bao, 2020).
 
 
-## Author
+## 作者
 
 [包寒吴霜 \| Bao H.-W.-S.](https://psychbruce.github.io)
 
@@ -31,31 +31,30 @@ Website: [psychbruce.github.io](https://psychbruce.github.io)
 [知乎](https://www.zhihu.com/people/psychbruce)
 
 
-## Experiment List
+## 示例程序列表
 
-To run the experiments, please use mainstream web browsers (e.g., *Chrome*, *Edge*, *Firefox*, *Opera*, *Safari*) **but not** *Internet Explorer* (IE)!
-<br/>
-请使用除IE浏览器外的主流浏览器（如Chrome、Edge等）运行下列实验程序！
+运行实验程序，请使用主流浏览器（*Chrome*, *Edge*, *Firefox*, *Opera*, *Safari*等），不要使用*Internet Explorer*（IE）。
 
-- [**Experiment Demo**](https://psychbruce.github.io/jspsych/exp_demo/experiment) (see [source code](https://github.com/psychbruce/jspsych/tree/master/exp_demo/experiment))
-  + This demo contains an integrated example of **(1)** basic experiment settings (e.g., text font, background color), **(2)** demographic variables (e.g., age with a range restriction of 15~99), **(3)** surveys and Likert scales (e.g., the *Rosenberg Self-Esteem Scale*), **(4)** behavioral experiments (e.g., the *Extrinsic Affective Simon Task*), **(5)** feedbacks of results, and **(6)** some useful custom JS functions.
-  + You could learn many **basic usages** of JavaScript (and the jsPsych plugins) from this demo!
-- [**IAT Demo**](https://psychbruce.github.io/jspsych/iat_demo) (see [source code](https://github.com/psychbruce/jspsych/tree/master/iat_demo))
-  + This demo contains a well-designed template for the *Implicit Association Test* (IAT), which has been widely used to measure people's implicit attitudes. It also presents a feedback of the IAT *D* score (for details, see Greenwald, Nosek, & Banaji, 2003 *JPSP*).
-  + You could learn many **advanced usages** of JavaScript from this demo!
-
-
-## Download
-
-**✔ Download all source code [here](https://github.com/psychbruce/jspsych/archive/master.zip).**
-
-**⚠ CAUTION: You MUST cite the webpage ([https://github.com/psychbruce/jspsych](https://github.com/psychbruce/jspsych)) AND the author (包寒吴霜 or Bao H.-W.-S.) if you copy, share, re-use, or re-distribute the code in this GitHub repository!**
+- [**Experiment Demo**](https://psychbruce.github.io/jspsych/exp_demo/experiment)（在线体验）
+  + 查看[源代码](https://github.com/psychbruce/jspsych/tree/master/exp_demo/experiment)
+  + 学习难度：入门级
+  + 该示例程序包括一个完整的例子：（1）实验基本设定，如字体、背景颜色、禁止右键、禁止选中文字等；（2）人口学变量采集，如收集被试年龄并把填写内容限制为两位数字、范围限制在15~99岁等；（3）问卷调查与Likert量表，如“Rosenberg自尊量表”等；（4）按键反应行为实验，如测量内隐态度的“外在情感性西蒙任务”（Extrinsic Affective Simon Task, EAST）等；（5）结果反馈，如量表平均分等；（6）自定义JavaScript函数，如倒计时功能、计算带有反向计分题的量表平均分等
+- [**IAT Demo**](https://psychbruce.github.io/jspsych/iat_demo)（在线体验）
+  + 查看[源代码](https://github.com/psychbruce/jspsych/tree/master/iat_demo)
+  + 学习难度：正常级
+  + 该示例程序包括一个精心设计的“内隐联系测验”（Implicit Association Test, IAT）模板，其中也包括对IAT结果“*D*分数”的反馈（Greenwald, Nosek, & Banaji, 2003 *JPSP*）
+  + IAT更准确的中文翻译应为“内隐**联系**测验”，而非“内隐**联想**测验”，详见[这篇文献](http://journal.psych.ac.cn/xlkxjz/CN/10.3724/SP.J.1042.2015.01966)
 
 
-## Tips
+## 下载
 
-- It is strongly recommended to use [**VS Code**](https://code.visualstudio.com) as a code editor.
-- Recommended extensions for VS Code:<br/>(install within VS Code)
+**✔ 所有代码均可从[这里](https://github.com/psychbruce/jspsych/archive/master.zip)下载。**
+
+**⚠ 注意：复制、修改、使用、分享本代码库，请务必规范引用本网页！**
+
+> Bao, H.-W.-S. (2020). jsPsych experiment demos. [https://github.com/psychbruce/jspsych](https://github.com/psychbruce/jspsych)
+
+- 强烈建议使用「[**VS Code**](https://code.visualstudio.com)」作为代码编辑器，并建议安装以下插件（从VS Code中的“Extensions”安装）：
   + `JS-CSS-HTML Formatter`
   + `HTML CSS Support`
   + `JavaScript (ES6) code snippets`
@@ -66,14 +65,21 @@ To run the experiments, please use mainstream web browsers (e.g., *Chrome*, *Edg
   + `Edit csv`
   + `Excel Viewer`
   + `vscode-icons`
-- For other tips, see [this file](https://github.com/psychbruce/jspsych/blob/master/Tips.txt).
 
 
 ## 中文教程
+
+**\* 更多内容，请关注知乎专栏「[只求甚解](https://zhuanlan.zhihu.com/inquisitive)」！**
 
 - [【合集】jsPsych教程收藏夹（持续更新）](https://zhuanlan.zhihu.com/p/158022294)
 - [jsPsych心理学实验与问卷编程指南（上篇）](https://zhuanlan.zhihu.com/p/150468198)
 - [jsPsych心理学实验与问卷编程指南（下篇）](https://zhuanlan.zhihu.com/p/154428604)
 - [利用「Cognition」免费平台轻松发布jsPsych在线实验！](https://zhuanlan.zhihu.com/p/159183585)
+- ……
 
-**欢迎关注知乎专栏「[只求甚解](https://zhuanlan.zhihu.com/inquisitive)」！**
+
+## 参考
+
+1. [https://www.jspsych.org](https://www.jspsych.org)
+2. [https://implicit.harvard.edu/implicit/china](https://implicit.harvard.edu/implicit/china)
+3. [http://www.cpsylab.com](http://www.cpsylab.com)
