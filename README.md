@@ -33,7 +33,7 @@ Website: [psychbruce.github.io](https://psychbruce.github.io)
 
 ## 示例程序列表
 
-**运行实验程序，请使用主流浏览器（*Chrome*, *Edge*, *Firefox*, *Opera*, *Safari*等），不要使用*Internet Explorer*（IE）。**
+**⚠ 运行实验程序，请使用主流浏览器（*Chrome*, *Edge*, *Firefox*, *Opera*, *Safari*等），不要使用*Internet Explorer*（IE）**
 
 - **Experiment Demo**（[在线体验](https://psychbruce.github.io/jspsych/exp_demo/experiment) / [源代码](https://github.com/psychbruce/jspsych/tree/master/exp_demo/experiment)）
   + 学习难度：入门级
@@ -48,11 +48,11 @@ Website: [psychbruce.github.io](https://psychbruce.github.io)
 
 **✔ 所有代码均可从[这里](https://github.com/psychbruce/jspsych/archive/master.zip)下载。**
 
-**⚠ 注意：复制、修改、使用、分享本代码库，请务必规范引用！**
+**❗ 注意：复制、修改、使用、分享本代码库，请务必规范引用！**
 
 > Bao, H.-W.-S. (2020). jsPsych experiment demos. [https://github.com/psychbruce/jspsych](https://github.com/psychbruce/jspsych)
 
-- 强烈建议使用「[**VS Code**](https://code.visualstudio.com)」作为代码编辑器，并建议安装以下插件（从VS Code中的“Extensions”安装）：
+- 为了更高的编程效率，强烈建议使用「[**VS Code**](https://code.visualstudio.com)」作为代码编辑器，并安装以下插件（从VS Code中的“Extensions”安装）：
   + `JS-CSS-HTML Formatter`
   + `HTML CSS Support`
   + `JavaScript (ES6) code snippets`
