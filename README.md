@@ -37,10 +37,10 @@ Website: [psychbruce.github.io](https://psychbruce.github.io)
 
 **💡 运行实验程序，请使用主流浏览器（*Chrome*, *Edge*, *Firefox*, *Opera*, *Safari*等），不要使用*Internet Explorer*（IE）**
 
-- **Experiment Demo**（[在线体验](https://psychbruce.github.io/jspsych/exp_demo/experiment) / [源代码](https://github.com/psychbruce/jspsych/tree/master/exp_demo/experiment)）——_首发于2020.6.25，最近更新于2020.7.28_
+- **Experiment Demo**（[在线体验](https://psychbruce.github.io/jspsych/exp_demo/experiment) / [源代码](https://github.com/psychbruce/jspsych/tree/master/exp_demo/experiment)）——*首发于2020.6.25，最近更新于2020.7.29*
   + 学习难度：入门级
   + 该示例程序包括一个完整的例子：（1）实验基本设定，如字体、背景颜色、禁止右键、禁止选中文字等；（2）人口学变量采集，如收集被试年龄并把填写内容限制为两位数、范围限制在15~99岁等；（3）问卷调查与量表，如“Rosenberg自尊量表”等；（4）按键反应实验，如测量内隐态度的“外在情感性西蒙任务”（Extrinsic Affective Simon Task, EAST）等；（5）结果反馈，如量表平均分等；（6）自定义JavaScript函数，如倒计时、滑动条刻度实时反馈、计算带有反向计分题的量表平均分等
-- **IAT Demo**（[在线体验](https://psychbruce.github.io/jspsych/iat_demo) / [源代码](https://github.com/psychbruce/jspsych/tree/master/iat_demo)）——_首发于2020.7.27，最近更新于2020.7.28_
+- **IAT Demo**（[在线体验](https://psychbruce.github.io/jspsych/iat_demo) / [源代码](https://github.com/psychbruce/jspsych/tree/master/iat_demo)）——*首发于2020.7.27，最近更新于2020.7.29*
   + 学习难度：正常级
   + 该示例程序包括一个精心设计的“内隐联系测验”（Implicit Association Test, IAT）范式模板，也包括对IAT结果“*D*分数”的标准化计算和反馈（[Greenwald, Nosek, & Banaji, 2003](https://doi.org/10.1037/0022-3514.85.2.197)）
   + IAT更准确的中文翻译应为“内隐**联系**测验”，而非“内隐**联想**测验”，详见[这篇文献](http://journal.psych.ac.cn/xlkxjz/CN/10.3724/SP.J.1042.2015.01966)
@@ -83,5 +83,6 @@ Website: [psychbruce.github.io](https://psychbruce.github.io)
 
 1. [https://www.jspsych.org](https://www.jspsych.org)
 2. [https://github.com/jspsych](https://github.com/jspsych)
-3. [https://implicit.harvard.edu/implicit/china](https://implicit.harvard.edu/implicit/china)
-4. [http://www.cpsylab.com](http://www.cpsylab.com)
+3. [https://github.com/jspsych/jsPsych/discussions](https://github.com/jspsych/jsPsych/discussions)
+4. [https://implicit.harvard.edu/implicit/china](https://implicit.harvard.edu/implicit/china)
+5. [http://www.cpsylab.com](http://www.cpsylab.com)
