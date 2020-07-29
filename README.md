@@ -4,7 +4,7 @@
 
 💻 Psychological experiments developed with “[jsPsych](https://www.jspsych.org)” (a JavaScript library developed by [Joshua R. de Leeuw](https://www.vassar.edu/faculty/jdeleeuw/) for running online/offline behavioral experiments; [de Leeuw, 2015](https://doi.org/10.3758/S13428-014-0458-Y)). All experiments in this GitHub repository are designed for Chinese participants and so displayed in Chinese.
 
-注：jsPsych是由[Joshua R. de Leeuw](https://www.vassar.edu/faculty/jdeleeuw/)开发的JavaScript脚本库，用于编写在线/本地心理学实验程序。下载最新版jsPsych（v6.1.0），请访问[https://github.com/jspsych/jsPsych/releases](https://github.com/jspsych/jsPsych/releases)。本代码库为基于jsPsych开发的心理学实验中文示例程序。
+注：jsPsych是由[Joshua R. de Leeuw](https://www.vassar.edu/faculty/jdeleeuw/)开发的JavaScript脚本库，用于编写在线/本地心理学实验程序。下载最新版请访问[https://github.com/jspsych/jsPsych/releases](https://github.com/jspsych/jsPsych/releases)。本代码库是基于jsPsych开发的心理学实验中文示例程序。
 
 ![](https://img.shields.io/badge/Language-JavaScript-success)
 ![](https://img.shields.io/github/license/psychbruce/jspsych?label=License&color=success)
@@ -42,7 +42,7 @@ Website: [psychbruce.github.io](https://psychbruce.github.io)
   + 该示例程序包括一个完整的例子：（1）实验基本设定，如字体、背景颜色、禁止右键、禁止选中文字等；（2）人口学变量采集，如收集被试年龄并把填写内容限制为两位数、范围限制在15~99岁等；（3）问卷调查与量表，如“Rosenberg自尊量表”等；（4）按键反应实验，如测量内隐态度的“外在情感性西蒙任务”（Extrinsic Affective Simon Task, EAST）等；（5）结果反馈，如量表平均分等；（6）自定义JavaScript函数，如倒计时、滑动条刻度实时反馈、计算带有反向计分题的量表平均分等
 - **IAT Demo**（[在线体验](https://psychbruce.github.io/jspsych/iat_demo) / [源代码](https://github.com/psychbruce/jspsych/tree/master/iat_demo)）
   + 学习难度：正常级
-  + 该示例程序包括一个精心设计的“内隐联系测验”（Implicit Association Test, IAT）范式模板，也包括对IAT结果“*D*分数”的反馈（[Greenwald, Nosek, & Banaji, 2003](https://doi.org/10.1037/0022-3514.85.2.197)）
+  + 该示例程序包括一个精心设计的“内隐联系测验”（Implicit Association Test, IAT）范式模板，也包括对IAT结果“*D*分数”的标准化计算和反馈（[Greenwald, Nosek, & Banaji, 2003](https://doi.org/10.1037/0022-3514.85.2.197)）
   + IAT更准确的中文翻译应为“内隐**联系**测验”，而非“内隐**联想**测验”，详见[这篇文献](http://journal.psych.ac.cn/xlkxjz/CN/10.3724/SP.J.1042.2015.01966)
 
 
