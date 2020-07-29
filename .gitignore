@@ -3,6 +3,7 @@
 .Rhistory
 .RData
 .Ruserdata
+*.zip
 *.xlsx
 *.csv
 lab_tasks
