@@ -86,7 +86,7 @@ var open_fullscreen = {
     fullscreen_mode: true,
     on_start: set_html_style,
     data: {
-        // must add this <script> in 'index.html', which will return a JSON object 'returnCitySN':
+        // must add the following <script> in 'index.html', which will return a JSON object 'returnCitySN':
         //     <script src="https://pv.sohu.com/cityjson"></script>
         id: subID,
         ip: returnCitySN['cip'],
@@ -533,6 +533,7 @@ var debrief_IAT = {
     type: 'html-keyboard-response',
     on_start: set_html_style,
     stimulus: function() {
+        // See the scoring algorithm of IAT D-score in Greewald et al. (2003)
         if (compatible_first) {
             var block_ids = { compat: [{ IAT: 3 }, { IAT: 4 }], incomp: [{ IAT: 6 }, { IAT: 7 }] }
         } else {
@@ -586,8 +587,7 @@ var debrief_IAT = {
     on_finish: function(data) {
         data.varname = 'IAT_feedback'
         data.summary = JSON.stringify(IAT_results)
-            // How to extract this in R:
-            // jsonlite::fromJSON(subset(data, varname=='IAT_feedback')$summary)
+            // extract in R:  jsonlite::fromJSON(subset(data, varname=='IAT_feedback')$summary)
     }
 }
 
@@ -621,8 +621,7 @@ jsPsych.init({
     timeline: main_timeline,
     on_finish: function() {
         jsPsych.data.get().localSave('csv', `data_iat_demo_${subID}.csv`) // download from browser
-        document.body.innerHTML +=
-            '<h3 style="display: flex; flex-direction: column; align-items: center; flex: 1 1 100%">实验结束，感谢您的参与！</h3>'
+        document.getElementById('jspsych-content').innerHTML += '实验结束，感谢您的参与！'
         setTimeout(window.close, 10 * 1000) // not effective in Edge
     }
 })

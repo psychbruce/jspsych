@@ -622,7 +622,6 @@ jsPsych.init({
     timeline: main_timeline,
     on_finish: function() {
         jsPsych.data.get().localSave('csv', `data_exp_demo_${subID}.csv`) // download from browser
-        document.body.innerHTML +=
-            '<h3 style="display: flex; flex-direction: column; align-items: center; flex: 1 1 100%">实验结束，感谢您的参与！</h3>'
+        document.getElementById('jspsych-content').innerHTML += '实验结束，感谢您的参与！'
     }
 })
