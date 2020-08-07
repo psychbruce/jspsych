@@ -46,9 +46,20 @@ Website: [psychbruce.github.io](https://psychbruce.github.io)
   + IAT更准确的中文翻译应为“内隐**联系**测验”，而非“内隐**联想**测验”，详见[这篇文献](http://journal.psych.ac.cn/xlkxjz/CN/10.3724/SP.J.1042.2015.01966)
 
 
-## 下载
+## 中文教程
 
-**✔ 所有代码均可从这里下载：[源代码](https://github.com/psychbruce/jspsych/archive/master.zip) / [干净版](https://github.com/psychbruce/jspsych/releases)**
+- [**【合集】jsPsych教程收藏夹（持续更新）**](https://zhuanlan.zhihu.com/p/158022294)
+- [**jsPsych心理学实验与问卷编程指南（上篇）**](https://zhuanlan.zhihu.com/p/150468198)
+- [**jsPsych心理学实验与问卷编程指南（下篇）**](https://zhuanlan.zhihu.com/p/154428604)
+- [**利用「Cognition」免费平台轻松发布jsPsych在线实验！**](https://zhuanlan.zhihu.com/p/159183585)
+- ……
+
+\* 更多内容，请关注知乎专栏「[只求甚解](https://zhuanlan.zhihu.com/inquisitive)」
+
+
+## 代码下载
+
+**✔ 所有代码均可从这里下载：[源代码<最新>](https://github.com/psychbruce/jspsych/archive/master.zip) / [干净版<非最新>](https://github.com/psychbruce/jspsych/releases)**
 
 **⚠ 注意：复制、修改、使用、分享本代码库，请务必规范引用！**
 
@@ -68,18 +79,7 @@ Website: [psychbruce.github.io](https://psychbruce.github.io)
   + `vscode-pdf`
 
 
-## 中文教程
-
-- [**【合集】jsPsych教程收藏夹（持续更新）**](https://zhuanlan.zhihu.com/p/158022294)
-- [**jsPsych心理学实验与问卷编程指南（上篇）**](https://zhuanlan.zhihu.com/p/150468198)
-- [**jsPsych心理学实验与问卷编程指南（下篇）**](https://zhuanlan.zhihu.com/p/154428604)
-- [**利用「Cognition」免费平台轻松发布jsPsych在线实验！**](https://zhuanlan.zhihu.com/p/159183585)
-- ……
-
-\* 更多内容，请关注知乎专栏「[只求甚解](https://zhuanlan.zhihu.com/inquisitive)」
-
-
-## 参考
+## 参考资料
 
 1. [https://www.jspsych.org](https://www.jspsych.org)
 2. [https://github.com/jspsych](https://github.com/jspsych)
