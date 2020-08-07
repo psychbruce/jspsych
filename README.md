@@ -48,7 +48,7 @@ Website: [psychbruce.github.io](https://psychbruce.github.io)
 
 ## 下载
 
-**✔ 所有代码均可从[这里](https://github.com/psychbruce/jspsych/releases)下载。**
+**✔ 所有代码均可从这里下载：[源代码](https://github.com/psychbruce/jspsych/archive/master.zip) / [干净版](https://github.com/psychbruce/jspsych/releases)**
 
 **⚠ 注意：复制、修改、使用、分享本代码库，请务必规范引用！**
 
