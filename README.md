@@ -24,6 +24,8 @@
 
 [包寒吴霜 \| Bao H.-W.-S.](https://psychbruce.github.io)
 
+中国科学院心理研究所 · 人格与社会心理研究中心
+
 E-mail: [baohws@foxmail.com](mailto:baohws@foxmail.com)
 
 Website: [psychbruce.github.io](https://psychbruce.github.io)
